@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Combinations & Permutations — Algebra & Functions</title>
+  <link rel="stylesheet" href="../../../../styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="../../../../script.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+</head>
+<style>
+/* Minimal fallback styles for boxes and KaTeX if global CSS fails to load */
+.content-box{background:rgba(0,0,0,0.04);border-radius:8px;padding:0.6rem;margin:0.6rem 0;border:1px solid rgba(0,0,0,0.06);}
+details.toggle{background:rgba(255,255,255,0.02);border:1px solid rgba(0,0,0,0.06);padding:0.5rem;border-radius:10px;margin:0.8rem 0}
+.details.toggle[open]{box-shadow:0 6px 18px rgba(0,0,0,0.08)}
+.details.toggle summary{cursor:pointer;font-weight:700;display:flex;align-items:center;min-height:44px;padding:0 0.25rem}
+.katex, .katex *{color:inherit!important;background:transparent!important}
+.katex-display{display:block;margin:0.6rem 0;padding:0.6rem;border-radius:6px;background:rgba(255,255,255,0.02);border:1px solid rgba(0,0,0,0.06)}
+
+/* Tidy KaTeX visuals inside our content without removing spacing */
+.content-box .katex,
+.content-box .katex *,
+.toggle-body .katex,
+.toggle-body .katex * {
+  /* only remove backgrounds for nested KaTeX elements; keep native borders (fraction rules) intact */
+  background: transparent !important;
+}
+
+/* Hide scrollbars while preserving layout and spacing */
+.katex, .katex-display {
+  overflow-x: visible !important;
+  overflow-y: visible !important;
+  -ms-overflow-style: none !important; /* IE/Edge */
+  scrollbar-width: none !important; /* Firefox */
+}
+.katex::-webkit-scrollbar, .katex-display::-webkit-scrollbar { display: none !important; width: 0 !important; height: 0 !important; }
+</style>
+</head>
+<body>
+  <nav class="top-nav">
+    <ul>
+      <li><a href="../../../../index.html">Home</a></li>
+      <li><a href="../../../index.html" class="active">Scientia</a></li>
+      <li><a href="../../../../Vitalis/index.html">Vitalis</a></li>
+      <li><a href="../../../../Logos/index.html">Logos</a></li>
+      <li><a href="../../../../Sensus/index.html">Sensus</a></li>
+      <li class="search-container">
+        <input type="text" id="siteSearch" class="search-bar" placeholder="Search topics..." autocomplete="off">
+        <div id="searchResults" class="search-results"></div>
+      </li>
+      <li><button class="theme-toggle" id="themeToggle">Dark</button></li>
+    </ul>
+  </nav>
+
+  <header class="site-header container">
+    <div>
+      <a class="back-link" href="../index.html">← Back to Algebra & Functions</a>
+      <h1>Combinations & Permutations</h1>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h2>Combinations & Permutations</h2>
+      <p class="lead">Counting principles, factorial notation, permutations, combinations, and arrangement problems.</p>
+      <p class="date-created">Created: December 15, 2025</p>
+    </section>
+    <section>
+      <div style="background:rgba(120,120,120,0.07);border-radius:12px;padding:2rem 1rem 1rem 1rem;max-width:800px;margin:2rem auto 2.5rem auto;box-shadow:0 1px 4px rgba(0,0,0,0.01);">
+        <h3 style="margin-top:0;text-align:center;">YouTube Video</h3>
+        <div style="position:relative;padding-bottom:42%;height:0;overflow:hidden;max-width:750px;margin:0 auto 1.2rem auto;">
+          <iframe 
+            style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;border-radius:8px;" 
+            src="https://www.youtube.com/embed/XJnIdRXUi7A?si=s535R3HmEnJbGKrJ" 
+            title="Combinations and Permutations - Explained! (Math Easy Solutions)" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="info-italic">
+          <span style="display:inline-block;padding:0.2em 0.8em;background:rgba(220,220,220,0.07);border-radius:8px;">By The Organic Chemistry Tutor, YouTube</span>
+        </div>
+      </div>
+    <hr class="section-sep">
+    <section>
+      <!-- Text removed per request: content under the video was deleted -->
+    </section>
+
+    </section>
+  </main>
+
+  <footer>
+    <p>Developer: Tanish Paul</p>
+  </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (window.renderMathInElement) {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false}
+          ],
+          throwOnError: false
+        });
+      }
+    });
+  </script>
+</body>
+</html>

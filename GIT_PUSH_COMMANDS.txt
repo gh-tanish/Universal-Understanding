@@ -1,0 +1,24 @@
+Instructions: create the remote repo on GitHub and push from your machine.
+
+Option A — create remote via GitHub web UI:
+1. On GitHub, create a new repository named `universal-understanding-v4` (Public).
+2. Do NOT initialize with a README (we already have one locally) to avoid merge conflicts.
+3. After creation, run these commands in this folder:
+
+```powershell
+git remote add origin https://github.com/<your-username>/universal-understanding-v4.git
+git branch -M main
+git push -u origin main
+```
+
+Option B — use `gh` CLI to create + push (recommended if you have `gh` installed):
+
+```powershell
+gh repo create <your-username>/universal-understanding-v4 --public --source=. --remote=origin --push
+```
+
+After pushing:
+- Open GitHub → Settings → Pages and ensure source is `main` branch and folder is `/` (root). The Pages build will run automatically.
+- If Pages build fails, open Actions → workflow run for "pages build and deployment" and inspect logs.
+
+If you want, paste the new repo URL here and I can check the Pages build status for you.
