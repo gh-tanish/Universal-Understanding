@@ -1,975 +1,1160 @@
-:root{
-  --bg:#ffffff;
-  --muted:#667085;
-  --text:#0f172a;
-  --accent:#2563eb;
-  --card-bg:#f8fafc;
-  --card-border:rgba(15,23,42,0.06);
-  --radius:12px;
-  --shadow: 0 6px 18px rgba(15,23,42,0.06);
-  --gap:1rem;
-  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+/* Smooth page transition */
+/* Smoother page transition */
+/* Even gentler page transition */
+/* Load modern UI fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@500;700&display=swap');
+  
+
+  
+.fade-in {
+  animation: fadeInUU 2.2s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+  }
+
+  /* Ensure fade-in, fade-out, and section-card transitions apply on all devices */
+  .fade-in, .fade-out, .section-card {
+    animation-play-state: running !important;
+    transition-property: box-shadow, background, border-color, transform, opacity !important;
+    transition-duration: 1.1s, 1.1s, 1.1s, 1.1s, 2.2s !important;
+    transition-timing-function: cubic-bezier(0.33, 1, 0.68, 1) !important;
+  }
+  
+@keyframes fadeInUU {
+  from { opacity: 0; transform: translateY(48px) scale(0.98); }
+  to { opacity: 1; transform: none; }
 }
+
+  
+.fade-out {
+  animation: fadeOutUU 1.6s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+@keyframes fadeOutUU {
+  from { opacity: 1; transform: none; }
+  to { opacity: 0; transform: translateY(32px) scale(0.98); }
+}
+/* Theme variables (dark defaults) */
+:root{
+  --bg:#0b0b0d;
+  --surface:#0f1720;
+  --surface-2: rgba(255,255,255,0.02);
+  --card-bg: linear-gradient(135deg, rgba(91,33,182,0.06), rgba(37,99,235,0.06));
+  --card-border: rgba(91,33,182,0.18);
+  --muted:#9ca3af;
+  --text:#e6eef8;
+  --accent:#5b21b6;
+  --accent-2:#2563eb;
+  --shadow: 0 8px 20px rgba(0,0,0,0.3);
+  --shadow-soft: 0 6px 16px rgba(0,0,0,0.12);
+}
+  
+  
+.theme-toggle {
+  background: var(--surface-2);
+  border: 1px solid var(--card-border);
+  color: var(--text);
+  padding: 0.35rem 0.6rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: all 0.45s cubic-bezier(0.33, 1, 0.68, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  font-family: 'Inter',sans-serif;
+  margin-left: 0;
+}
+.theme-toggle:hover {
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(91,33,182,0.25);
+  color: var(--accent-2);
+}
+/* Adaptive italic info text for both light and dark themes */
+
+.info-italic {
+  font-style: italic;
+  font-size: 0.92rem;
+  letter-spacing: 0.01em;
+  opacity: 1;
+  margin-top: 0.5rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--text) !important;
+  text-shadow: none;
+}
+/* Light mode */
+body.light-mode{--bg:#f5f5f7;--surface:#ffffff;--surface-2:rgba(0,0,0,0.03);--card-bg:linear-gradient(135deg, rgba(91,33,182,0.03), rgba(37,99,235,0.03));--card-border:rgba(0,0,0,0.08);--muted:#6b7280;--text:#1f2937;--accent:#5b21b6;--accent-2:#2563eb;--shadow:0 6px 16px rgba(0,0,0,0.08);--shadow-soft:0 4px 12px rgba(0,0,0,0.06)}
 *{box-sizing:border-box}
-html,body{height:100%;margin:0;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
-a{color:inherit;text-decoration:none}
-.container{max-width:1100px;margin:0 auto;padding:1.25rem}
+body{margin:0;font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;transition:background-color 0.4s ease,color 0.4s ease}
 
-/* Top navigation */
-.top-nav{background:transparent;padding:0.5rem 0;border-bottom:1px solid rgba(15,23,42,0.04)}
-.top-nav ul{list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:0.75rem}
-.top-nav li{margin:0}
-.top-nav a{padding:0.55rem 0.6rem;border-radius:8px;display:inline-block;color:var(--muted);font-weight:600}
-.top-nav a:hover{background:rgba(37,99,235,0.06);color:var(--accent)}
-.search-container{margin-left:auto;min-width:220px;position:relative}
-.search-bar{width:100%;padding:0.45rem 0.6rem;border-radius:8px;border:1px solid rgba(15,23,42,0.06)}
-.search-results{position:absolute;left:0;right:0;top:calc(100% + 6px);background:#fff;border:1px solid rgba(15,23,42,0.06);border-radius:8px;box-shadow:var(--shadow);z-index:40;max-height:320px;overflow:auto}
+.top-nav{background:var(--surface);border-bottom:1px solid var(--card-border);padding:0.75rem 0;position:sticky;top:0;z-index:100;transition:background-color 0.4s ease,border-color 0.4s ease}
+.top-nav ul{list-style:none;margin:0;padding:0 2rem;display:flex;gap:2rem;max-width:1100px;margin:0 auto;align-items:center;justify-content:center}
+.top-nav li a{color:var(--text);text-decoration:none;font-weight:500;padding:0.5rem 0;border-bottom:2px solid transparent;transition:all 0.4s cubic-bezier(0.4, 0, 0.2, 1)}
 
-/* Header */
-.site-header{display:flex;align-items:center;padding:1rem 0}
-.brand h1{font-size:1.15rem;margin:0}
+/* Gradient underline directly under the top bar */
+.top-nav {
+  position: sticky;
+}
 
-/* Main heroes */
-.hero{padding:1.5rem 0}
-.welcome-subtitle{color:var(--accent);margin:0 0 0.5rem}
-.welcome-description{color:var(--muted);margin:0 0 1rem}
+.top-nav::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 4px;
+  background: linear-gradient(90deg, #4facfe 0%, #8f6bff 50%, #ff7ab6 100%);
+  background-size: 200% 100%;
+  animation: topbarGradientShift 12s linear infinite;
+  opacity: 0.9;
+  pointer-events: none;
+}
 
-.welcome-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:1rem}
-.welcome-card{display:block;padding:1rem;border-radius:var(--radius);background:var(--card-bg);box-shadow:var(--shadow);border:1px solid var(--card-border);color:var(--text);transition:transform .18s ease,box-shadow .18s ease}
-.welcome-card:hover{transform:translateY(-6px);box-shadow:0 10px 26px rgba(15,23,42,0.08)}
-.card-icon{width:48px;height:48px;color:var(--accent);display:block;margin-bottom:0.5rem}
-.welcome-card h4{margin:0 0 0.25rem;font-size:1.05rem}
-.welcome-card p{margin:0;color:var(--muted);font-size:0.92rem}
+@keyframes topbarGradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
-/* Sections */
-.hero .updates-list{margin-top:.75rem}
-.update-item{padding:.75rem;border-radius:10px;background:#fff;border:1px solid rgba(15,23,42,0.03);box-shadow:0 4px 10px rgba(15,23,42,0.02)}
-.update-meta{display:flex;gap:.5rem;align-items:center;margin-bottom:.35rem}
-.update-tag{background:rgba(37,99,235,0.08);color:var(--accent);padding:.15rem .45rem;border-radius:6px;font-weight:700;font-size:.8rem}
 
-.feature-list{padding-left:1.2rem;color:var(--muted)}
+/* Respect reduced motion preferences only if user sets it */
+@media (prefers-reduced-motion: reduce) {
+  .top-nav::after,
+  .site-header h1,
+  .fade-in,
+  .fade-out {
+    animation: none !important;
+    transition: none !important;
+  }
+}
 
-/* Contact form */
-#contactForm input,#contactForm textarea{width:100%;padding:.6rem;border:1px solid rgba(15,23,42,0.06);border-radius:8px;margin-bottom:.5rem}
-#contactForm button{background:var(--accent);color:#fff;padding:.55rem .9rem;border-radius:8px;border:none}
+/* Tag chips */
+/* Welcome card colored accents */
+  
+  
+.welcome-card {
+  position: relative;
+  border-left: 4px solid transparent;
+  border-image: linear-gradient(180deg, #4facfe 0%, #8f6bff 100%) 1;
+  background: linear-gradient(135deg, rgba(79,172,254,0.02) 0%, rgba(143,107,255,0.03) 100%);
+  transition: box-shadow 1.1s cubic-bezier(0.33, 1, 0.68, 1), background 1.1s cubic-bezier(0.33, 1, 0.68, 1), border-color 1.1s cubic-bezier(0.33, 1, 0.68, 1), transform 1.1s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.welcome-card:hover {
+  border-image: linear-gradient(180deg, #4facfe 0%, #8f6bff 50%, #b084ff 100%) 1;
+  background: linear-gradient(135deg, rgba(79,172,254,0.04) 0%, rgba(143,107,255,0.06) 100%);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3), -4px 0 15px rgba(111,127,255,0.15);
+}
+
+/* Reference number badge */
+  
+  
+.section-card {
+  position: relative;
+  transition: box-shadow 1.1s cubic-bezier(0.33, 1, 0.68, 1), background 1.1s cubic-bezier(0.33, 1, 0.68, 1), border-color 1.1s cubic-bezier(0.33, 1, 0.68, 1), transform 1.1s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.card-ref {
+  min-width: 32px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 8px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.12), rgba(168, 85, 247, 0.08));
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  font-size: 0.65rem;
+  font-weight: 600;
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: 0.02em;
+  color: #c4b5fd;
+  margin-left: auto;
+  backdrop-filter: blur(4px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-ref:hover {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.18), rgba(168, 85, 247, 0.12));
+  border-color: rgba(139, 92, 246, 0.35);
+}
+
+/* Level 1: Purple (SC1, VI1) - no dots */
+.card-ref {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.12), rgba(168, 85, 247, 0.08));
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  color: #c4b5fd;
+}
+
+/* Level 2: Blue (SC1.1, VI1.1) - one dot */
+.section-card[href*="1-1-"] .card-ref,
+.section-card[href*="1-2-"] .card-ref,
+.section-card[href*="1-3-"] .card-ref,
+.section-card[href*="1-4-"] .card-ref,
+.section-card[href*="1-5-"] .card-ref,
+.section-card[href*="1-6-"] .card-ref,
+.section-card[href*="1-7-"] .card-ref,
+.section-card[href*="1-8-"] .card-ref,
+.section-card[href*="1-9-"] .card-ref,
+.section-card[href*="1-10-"] .card-ref,
+.section-card[href*="1-11-"] .card-ref,
+.section-card[href*="1-12-"] .card-ref,
+.section-card[href*="1-13-"] .card-ref,
+.section-card[href*="1-14-"] .card-ref,
+.section-card[href*="2-1-"] .card-ref,
+.section-card[href*="2-2-"] .card-ref,
+.section-card[href*="3-1-"] .card-ref,
+.section-card[href*="4-1-"] .card-ref,
+.section-card[href*="5-1-"] .card-ref,
+.section-card[href*="6-1-"] .card-ref,
+.section-card[href*="7-1-"] .card-ref,
+.section-card[href*="8-1-"] .card-ref {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.12), rgba(59, 130, 246, 0.08));
+  border-color: rgba(37, 99, 235, 0.25);
+  color: #93c5fd;
+}
+
+/* Level 3: Sky Blue (VI1.1.1) - two dots */
+.section-card[href*="1-1-1-"] .card-ref,
+.section-card[href*="1-1-2-"] .card-ref,
+.section-card[href*="1-1-3-"] .card-ref,
+.section-card[href*="1-1-4-"] .card-ref,
+.section-card[href*="1-1-5-"] .card-ref,
+.section-card[href*="1-1-6-"] .card-ref,
+.section-card[href*="1-1-7-"] .card-ref,
+.section-card[href*="1-2-1-"] .card-ref,
+.section-card[href*="1-2-2-"] .card-ref,
+.section-card[href*="1-2-3-"] .card-ref {
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.12), rgba(56, 189, 248, 0.08));
+  border-color: rgba(14, 165, 233, 0.25);
+  color: #7dd3fc;
+}
+
+/* Level 4: Cyan (VI1.1.1.1) - three dots */
+.section-card[href*="1-1-1-1-"] .card-ref,
+.section-card[href*="1-1-1-2-"] .card-ref,
+.section-card[href*="1-1-1-3-"] .card-ref,
+.section-card[href*="1-1-1-4-"] .card-ref,
+.section-card[href*="1-1-1-5-"] .card-ref,
+.section-card[href*="1-1-1-6-"] .card-ref,
+.section-card[href*="1-1-2-1-"] .card-ref,
+.section-card[href*="1-1-2-2-"] .card-ref,
+.section-card[href*="1-1-2-3-"] .card-ref,
+.section-card[href*="1-1-3-1-"] .card-ref,
+.section-card[href*="1-1-3-2-"] .card-ref,
+.section-card[href*="1-1-3-3-"] .card-ref,
+.section-card[href*="1-1-3-4-"] .card-ref,
+.section-card[href*="1-1-3-5-"] .card-ref,
+.section-card[href*="1-1-4-1-"] .card-ref,
+.section-card[href*="1-1-4-2-"] .card-ref,
+.section-card[href*="1-1-4-3-"] .card-ref,
+.section-card[href*="1-1-5-1-"] .card-ref,
+.section-card[href*="1-1-5-2-"] .card-ref,
+.section-card[href*="1-1-5-3-"] .card-ref,
+.section-card[href*="1-1-6-1-"] .card-ref,
+.section-card[href*="1-1-6-2-"] .card-ref,
+.section-card[href*="1-1-6-3-"] .card-ref,
+.section-card[href*="1-1-7-1-"] .card-ref,
+.section-card[href*="1-1-7-2-"] .card-ref,
+.section-card[href*="1-1-7-3-"] .card-ref {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.12), rgba(34, 211, 238, 0.08));
+  border-color: rgba(6, 182, 212, 0.25);
+  color: #67e8f9;
+}
+
+.light-mode .card-ref {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.08), rgba(168, 85, 247, 0.05));
+  border-color: rgba(139, 92, 246, 0.2);
+  color: #7c3aed;
+}
+
+.light-mode .section-card[href*="1-1-"] .card-ref,
+.light-mode .section-card[href*="1-2-"] .card-ref,
+.light-mode .section-card[href*="1-3-"] .card-ref,
+.light-mode .section-card[href*="1-4-"] .card-ref,
+.light-mode .section-card[href*="1-5-"] .card-ref,
+.light-mode .section-card[href*="1-6-"] .card-ref,
+.light-mode .section-card[href*="1-7-"] .card-ref,
+.light-mode .section-card[href*="1-8-"] .card-ref,
+.light-mode .section-card[href*="1-9-"] .card-ref,
+.light-mode .section-card[href*="1-10-"] .card-ref,
+.light-mode .section-card[href*="1-11-"] .card-ref,
+.light-mode .section-card[href*="1-12-"] .card-ref,
+.light-mode .section-card[href*="1-13-"] .card-ref,
+.light-mode .section-card[href*="1-14-"] .card-ref,
+.light-mode .section-card[href*="2-1-"] .card-ref,
+.light-mode .section-card[href*="2-2-"] .card-ref,
+.light-mode .section-card[href*="3-1-"] .card-ref,
+.light-mode .section-card[href*="4-1-"] .card-ref,
+.light-mode .section-card[href*="5-1-"] .card-ref,
+.light-mode .section-card[href*="6-1-"] .card-ref,
+.light-mode .section-card[href*="7-1-"] .card-ref,
+.light-mode .section-card[href*="8-1-"] .card-ref {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(59, 130, 246, 0.05));
+  border-color: rgba(37, 99, 235, 0.2);
+  color: #2563eb;
+}
+
+.light-mode .section-card[href*="1-1-1-"] .card-ref,
+.light-mode .section-card[href*="1-1-2-"] .card-ref,
+.light-mode .section-card[href*="1-1-3-"] .card-ref,
+.light-mode .section-card[href*="1-1-4-"] .card-ref,
+.light-mode .section-card[href*="1-1-5-"] .card-ref,
+.light-mode .section-card[href*="1-1-6-"] .card-ref,
+.light-mode .section-card[href*="1-1-7-"] .card-ref,
+.light-mode .section-card[href*="1-2-1-"] .card-ref,
+.light-mode .section-card[href*="1-2-2-"] .card-ref,
+.light-mode .section-card[href*="1-2-3-"] .card-ref {
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.08), rgba(56, 189, 248, 0.05));
+  border-color: rgba(14, 165, 233, 0.2);
+  color: #0284c7;
+}
+
+.light-mode .section-card[href*="1-1-1-1-"] .card-ref,
+.light-mode .section-card[href*="1-1-1-2-"] .card-ref,
+.light-mode .section-card[href*="1-1-1-3-"] .card-ref,
+.light-mode .section-card[href*="1-1-1-4-"] .card-ref,
+.light-mode .section-card[href*="1-1-1-5-"] .card-ref,
+.light-mode .section-card[href*="1-1-1-6-"] .card-ref,
+.light-mode .section-card[href*="1-1-2-1-"] .card-ref,
+.light-mode .section-card[href*="1-1-2-2-"] .card-ref,
+.light-mode .section-card[href*="1-1-2-3-"] .card-ref,
+.light-mode .section-card[href*="1-1-3-1-"] .card-ref,
+.light-mode .section-card[href*="1-1-3-2-"] .card-ref,
+.light-mode .section-card[href*="1-1-3-3-"] .card-ref,
+.light-mode .section-card[href*="1-1-3-4-"] .card-ref,
+.light-mode .section-card[href*="1-1-3-5-"] .card-ref,
+.light-mode .section-card[href*="1-1-4-1-"] .card-ref,
+.light-mode .section-card[href*="1-1-4-2-"] .card-ref,
+.light-mode .section-card[href*="1-1-4-3-"] .card-ref,
+.light-mode .section-card[href*="1-1-5-1-"] .card-ref,
+.light-mode .section-card[href*="1-1-5-2-"] .card-ref,
+.light-mode .section-card[href*="1-1-5-3-"] .card-ref,
+.light-mode .section-card[href*="1-1-6-1-"] .card-ref,
+.light-mode .section-card[href*="1-1-6-2-"] .card-ref,
+.light-mode .section-card[href*="1-1-6-3-"] .card-ref,
+.light-mode .section-card[href*="1-1-7-1-"] .card-ref,
+.light-mode .section-card[href*="1-1-7-2-"] .card-ref,
+.light-mode .section-card[href*="1-1-7-3-"] .card-ref {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.08), rgba(34, 211, 238, 0.05));
+  border-color: rgba(6, 182, 212, 0.2);
+  color: #0891b2;
+}
+
+.light-mode .card-ref:hover {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.12), rgba(168, 85, 247, 0.08));
+  border-color: rgba(139, 92, 246, 0.3);
+}
+
+/* Search bar */
+.search-container {
+  position: relative;
+}
+
+.search-bar {
+  padding: 6px 12px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 6px;
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  width: 200px;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+.search-bar:focus {
+    outline: none;
+    background: rgba(255,255,255,0.12);
+    border-color: var(--accent);
+}
+
+/* Search results container: positioned overlay by default (hidden) */
+.search-results {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 280px;
+  background: var(--surface);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  max-height: 400px;
+  overflow-y: auto;
+  display: none;
+  z-index: 1000;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+
+.search-results.active { display: block; }
+
+.light-mode .search-results { background: var(--surface); border-color: rgba(0,0,0,0.12); box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+
+  /* Ensure fade-in, fade-out, and section-card transitions apply on all devices */
+  .fade-in, .fade-out, .section-card {
+    animation-play-state: running !important;
+    transition-property: box-shadow, background, border-color, transform, opacity !important;
+    transition-duration: 1.1s, 1.1s, 1.1s, 1.1s, 2.2s !important;
+    transition-timing-function: cubic-bezier(0.33, 1, 0.68, 1) !important;
+  }
+
+/* --- Readability & Indentation tweaks for content --- */
+/* Slightly larger base for article content and clearer list indentation */
+article, .container article, main article {
+  font-size: 1.06rem;
+}
+
+article ul, article ol {
+  padding-left: 1.4rem;
+  margin-left: 0.1rem;
+}
+
+article li {
+  margin: 0.42rem 0;
+}
+
+article ol {
+  padding-left: 1.6rem;
+}
+
+/* Indented blocks for formula / example boxes */
+.content-box, article .content-box {
+  background: var(--surface-2);
+  border-radius: 10px;
+  padding: 0.9rem;
+  margin: 0.9rem 0;
+  border: 1px solid var(--card-border);
+  color: var(--text);
+  box-shadow: var(--shadow-soft);
+}
+
+/* Special box for derivations: slightly stronger left accent for emphasis */
+.derivation-box {
+  border-left: 4px solid rgba(91,33,182,0.12);
+  padding-left: 1rem;
+  background: linear-gradient(90deg, rgba(91,33,182,0.01), var(--surface-2));
+}
+
+/* --- KaTeX adaptive styling: ensure math is readable in both light/dark modes --- */
+/* Force KaTeX text color to follow theme text color and remove hard white backgrounds */
+.katex, .katex * {
+  color: var(--text) !important;
+  background: transparent !important;
+}
+
+/* Display-mode math gets a subtle surface background that adapts to theme */
+.katex-display {
+  display: block;
+  margin: 0.8rem 0;
+  padding: 0.9rem;
+  border-radius: 10px;
+  background: var(--surface-2);
+  border: 1px solid var(--card-border);
+  color: var(--text) !important;
+  box-shadow: var(--shadow-soft);
+}
+
+.light-mode .katex-display {
+  border-color: rgba(0,0,0,0.06);
+}
+
+/* Make inline math slightly larger and aligned with text */
+.katex .mord {
+  font-size: 1.02em;
+}
+
+/* Ensure KaTeX SVG or HTML output doesn't carry inline white fills */
+.katex svg * { fill: currentColor !important; }
+
+/* Mobile-friendly KaTeX / box overflow handling */
+/* Allow horizontal scroll inside formula boxes rather than letting math overflow the viewport */
+.content-box, .derivation-box, .katex-display {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.katex, .katex * {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+@media (max-width: 520px) {
+  .content-box, .derivation-box, .katex-display {
+    padding: 0.5rem !important;
+    margin: 0.6rem 0 !important;
+  }
+  .katex-display { font-size: 1rem !important; }
+}
+
+/* --- Typography & Layout improvements for clearer headings --- */
+/* Base sizing adjustments */
+
+/* Base sizing adjustments */
+html { font-size: 16px; }
+
+.site-header.container { padding: 1.6rem 1rem; margin-bottom: 0.8rem; }
+.site-header h1 { font-size: 2.0rem; line-height: 1.02; margin: 0; font-weight: 700; letter-spacing: -0.01em; }
+
+.hero { padding: 1.2rem 0 1.4rem; margin-bottom: 1.25rem; }
+.hero h2 { font-size: 1.65rem; margin: 0 0 0.45rem; font-weight: 700; }
+.hero p { font-size: 1.05rem; color: var(--muted); margin: 0.3rem 0; }
+
+/* Article typography and spacing for clarity */
+article h3 { font-size: 1.28rem; margin-top: 0.6rem; margin-bottom: 0.8rem; font-weight: 700; }
+article h4 { font-size: 1.08rem; margin-top: 0.6rem; margin-bottom: 0.55rem; font-weight: 600; }
+article h5 { font-size: 1.0rem; margin-top: 0.5rem; margin-bottom: 0.45rem; font-weight: 600; }
+
+.content-box { font-size: 1rem; }
+
+article { max-width: 900px; margin: 0 auto; }
+article p, article li { line-height: 1.72; margin: 0.9rem 0; }
+article ul, article ol { margin: 0.6rem 0 0.9rem 1.25rem; }
+
+/* Slightly larger KaTeX display math for readability */
+.katex-display { font-size: 1.06rem; padding: 0.9rem; }
+
+/* Responsive scaling for larger screens */
+@media (min-width: 900px) {
+  .site-header h1 { font-size: 2.4rem; }
+  .hero h2 { font-size: 1.8rem; }
+  article h3 { font-size: 1.3rem; }
+}
+
+/* subtle section separators */
+.section-sep {
+  height: 1px;
+  border: none;
+  margin: 1.2rem 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
+}
+.light-mode .section-sep {
+  background: linear-gradient(90deg, transparent, rgba(0,0,0,0.04), transparent);
+}
+
+.section-rule-strong {
+  height: 1.5px;
+  border: none;
+  margin: 1.4rem 0;
+  background: linear-gradient(90deg, rgba(91,33,182,0.07), rgba(37,99,235,0.07));
+  border-radius: 2px;
+}
+
+/* Paragraphing utilities */
+article p { margin: 0.72rem 0; }
+.lead { font-size: 1.06rem; color: var(--muted); margin-bottom: 0.9rem; }
+.spaced { margin: 0.9rem 0; }
+.spacer { height: 1rem; display:block; }
+.lead { font-size: 1.06rem; color: var(--muted); margin-bottom: 1.1rem; }
+.spaced { margin: 1rem 0; }
+.spacer { height: 1.4rem; display:block; }
+
+/* Details/Summary toggles styling */
+details.toggle {
+  background: var(--surface);
+  border: 1px solid var(--card-border);
+  padding: 0.55rem 0.75rem;
+  border-radius: 10px;
+  margin: 0.8rem 0;
+  transition: background-color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, color 0.35s ease;
+}
+details.toggle[open] {
+  box-shadow: var(--shadow-soft);
+}
+details.toggle summary {
+  cursor: pointer;
+  font-weight: 700;
+  margin: 0;
+  list-style: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0.6rem 0.9rem;
+  font-size: 1.02rem;
+  border-radius: 8px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+  border: 1px solid transparent;
+  gap: 0.6rem;
+  align-items: center;
+  color: var(--text);
+}
+details.toggle summary:hover { box-shadow: 0 6px 18px rgba(0,0,0,0.06); }
+summary::-webkit-details-marker { display: none; }
+details.toggle summary::after {
+  content: '\25BE';
+  margin-left: auto;
+  transition: transform 0.18s ease, color 0.35s ease;
+  color: var(--muted);
+}
+details.toggle[open] summary::after { transform: rotate(180deg); }
+details.toggle .toggle-body {
+  margin-top: 0.6rem;
+  padding: 0.75rem;
+  border-top: 1px solid var(--card-border);
+  background: var(--surface);
+  border-radius: 0 0 10px 10px;
+}
+
+/* Make the summary visually connected to the body when open */
+details.toggle[open] summary {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-color: var(--card-border);
+}
+
+/* Make content-box smoothly adapt to theme changes */
+.content-box {
+  transition: background-color 0.35s ease, border-color 0.35s ease, color 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* KaTeX display smoother transition */
+.katex-display {
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+/* Centering utility for examples and focused blocks */
+.centered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0.6rem;
+  min-height: 120px;
+}
+
+@media (max-width: 520px) {
+  .centered { min-height: auto; padding: 0.4rem; }
+}
+
+
+  
+.search-result-item {
+  padding: 10px 12px;
+  width: 100%;
+  cursor: pointer;
+  transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  -webkit-tap-highlight-color: rgba(91,33,182,0.08);
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  background: transparent;
+  color: var(--text);
+}
+
+/* Ensure the whole result is an accessible clickable link */
+.search-result-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  color: inherit;
+  text-decoration: none;
+}
+
+.search-result-link:focus {
+  outline: 2px solid rgba(91,33,182,0.18);
+  outline-offset: 2px;
+}
+
+.search-result-item:not(:last-child) {
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.search-result-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.search-result-item:last-child {
+  border-bottom: none;
+}
+
+.search-result-item:hover {
+  background: rgba(91,33,182,0.10);
+  color: var(--accent-2);
+}
+
+.light-mode .search-result-item {
+  border-bottom-color: rgba(0,0,0,0.06);
+  background: transparent;
+  color: var(--text);
+}
+
+.light-mode .search-result-item:hover {
+  background: rgba(91,33,182,0.06);
+  color: var(--accent-2);
+}
+
+.search-ref {
+  min-width: 32px;
+  height: 24px;
+  padding: 0 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.12), rgba(168, 85, 247, 0.08));
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  border-radius: 6px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: 0.02em;
+  color: #c4b5fd;
+  flex-shrink: 0;
+  backdrop-filter: blur(4px);
+}
+
+/* Level 2: Blue */
+.search-ref[data-depth="2"] {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.12), rgba(59, 130, 246, 0.08));
+  border-color: rgba(37, 99, 235, 0.25);
+  color: #93c5fd;
+}
+
+/* Level 3: Sky Blue */
+.search-ref[data-depth="3"] {
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.12), rgba(56, 189, 248, 0.08));
+  border-color: rgba(14, 165, 233, 0.25);
+  color: #7dd3fc;
+}
+
+/* Level 4: Cyan */
+.search-ref[data-depth="4"] {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.12), rgba(34, 211, 238, 0.08));
+  border-color: rgba(6, 182, 212, 0.25);
+  color: #67e8f9;
+}
+
+/* Level 5: Greenish-Turquoise (slightly grey) */
+.search-ref[data-depth="5"] {
+  background: linear-gradient(135deg, rgba(64, 193, 170, 0.12), rgba(120, 210, 200, 0.08));
+  border-color: rgba(64, 193, 170, 0.25);
+  color: #8ee0cf;
+}
+
+.light-mode .search-ref {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.08), rgba(168, 85, 247, 0.05));
+  border-color: rgba(139, 92, 246, 0.2);
+  color: #7c3aed;
+}
+
+.light-mode .search-ref[data-depth="2"] {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(59, 130, 246, 0.05));
+  border-color: rgba(37, 99, 235, 0.2);
+  color: #2563eb;
+}
+
+.light-mode .search-ref[data-depth="3"] {
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.08), rgba(56, 189, 248, 0.05));
+  border-color: rgba(14, 165, 233, 0.2);
+  color: #0284c7;
+}
+
+.light-mode .search-ref[data-depth="4"] {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.08), rgba(34, 211, 238, 0.05));
+  border-color: rgba(6, 182, 212, 0.2);
+  color: #06b6d4;
+}
+
+.light-mode .search-ref[data-depth="5"] {
+  background: linear-gradient(135deg, rgba(64, 193, 170, 0.08), rgba(120, 210, 200, 0.05));
+  border-color: rgba(64, 193, 170, 0.2);
+  color: #2f7f72;
+}
+
+/* Mirror depth-based colouring for cards using data-depth attribute */
+.section-card[data-depth="2"] .card-ref {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.12), rgba(59, 130, 246, 0.08));
+  border-color: rgba(37, 99, 235, 0.25);
+  color: #93c5fd;
+}
+.section-card[data-depth="3"] .card-ref {
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.12), rgba(56, 189, 248, 0.08));
+  border-color: rgba(14, 165, 233, 0.25);
+  color: #7dd3fc;
+}
+.section-card[data-depth="4"] .card-ref {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.12), rgba(34, 211, 238, 0.08));
+  border-color: rgba(6, 182, 212, 0.25);
+  color: #67e8f9;
+}
+
+.section-card[data-depth="5"] .card-ref {
+  background: linear-gradient(135deg, rgba(64, 193, 170, 0.12), rgba(120, 210, 200, 0.08));
+  border-color: rgba(64, 193, 170, 0.25);
+  color: #8ee0cf;
+}
+
+.light-mode .section-card[data-depth="2"] .card-ref {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(59, 130, 246, 0.05));
+  border-color: rgba(37, 99, 235, 0.2);
+  color: #2563eb;
+}
+.light-mode .section-card[data-depth="3"] .card-ref {
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.08), rgba(56, 189, 248, 0.05));
+  border-color: rgba(14, 165, 233, 0.2);
+  color: #0284c7;
+}
+.light-mode .section-card[data-depth="4"] .card-ref {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.08), rgba(34, 211, 238, 0.05));
+  border-color: rgba(6, 182, 212, 0.2);
+  color: #0891b2;
+}
+
+.light-mode .section-card[data-depth="5"] .card-ref {
+  background: linear-gradient(135deg, rgba(64, 193, 170, 0.08), rgba(120, 210, 200, 0.05));
+  border-color: rgba(64, 193, 170, 0.2);
+  color: #2f7f72;
+}
+
+.search-result-title {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.search-result-path {
+  font-size: 0.75rem;
+  color: var(--muted);
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .search-container {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+  
+  .search-bar {
+    width: 100%;
+    max-width: 100%;
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+  
+  .search-bar:focus {
+    width: 100%;
+  }
+  
+  .search-results {
+    left: 0;
+    right: 0;
+    min-width: auto;
+    width: 100%;
+  }
+}
+
+
+/* Theme toggle button — match top-nav links with faint box */
+.theme-toggle{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:var(--text);padding:0.35rem 0.6rem;border-radius:8px;cursor:pointer;font-size:0.95rem;transition:all 0.4s cubic-bezier(0.4, 0, 0.2, 1);display:inline-flex;align-items:center;gap:0.5rem;font-weight:500;font-family:'Inter',sans-serif;margin-left:0}
+.theme-toggle:hover{background:rgba(255,255,255,0.09);border-color:rgba(255,255,255,0.18);color:var(--accent-2)}
+
+/* Dark mode: faint grey box */
+:root:not(.light-mode) .theme-toggle{background:rgba(148,163,184,0.10); /* slate-400 */ border-color:rgba(148,163,184,0.25)}
+:root:not(.light-mode) .theme-toggle:hover{background:rgba(148,163,184,0.18); border-color:rgba(148,163,184,0.35)}
+
+/* Light mode: softer light box */
+body.light-mode .theme-toggle{background:rgba(0,0,0,0.04); border-color:rgba(0,0,0,0.08); color:var(--text)}
+body.light-mode .theme-toggle:hover{background:rgba(0,0,0,0.06); border-color:rgba(0,0,0,0.12)}
+
+body.light-mode .top-nav{background:rgba(255,255,255,0.95);border-bottom:1px solid rgba(91,33,182,0.2)}
+
+/* Light mode card shadows - more prominent */
+body.light-mode .section-card{box-shadow:0 2px 8px rgba(0,0,0,0.12); border:1px solid rgba(0,0,0,0.08)}
+body.light-mode .section-card:hover{box-shadow:0 4px 16px rgba(0,0,0,0.16); border-color:rgba(91,33,182,0.3)}
+body.light-mode .welcome-card{border:1px solid rgba(91,33,182,0.15)}
+body.light-mode .welcome-card:hover{box-shadow:0 2px 4px rgba(0,0,0,0.06),-2px 0 3px rgba(91,33,182,0.04); border-color:rgba(91,33,182,0.3)}
+body.light-mode .search-results{box-shadow:0 2px 6px rgba(0,0,0,0.08)}
+body.light-mode .update-item{background:rgba(0,0,0,0.02); border:1px solid rgba(0,0,0,0.08)}
+body.light-mode .hero{background:linear-gradient(90deg,rgba(0,0,0,0.01),rgba(0,0,0,0.005)); border:1px solid rgba(0,0,0,0.08)}
+
+/* Theme variable overrides to ensure consistent dark/light appearance */
+.top-nav { background: var(--surface) !important; }
+.top-nav li a { color: var(--text) !important; }
+.search-results { background: var(--surface) !important; border-color: rgba(0,0,0,0.08) !important; box-shadow: 0 6px 18px rgba(0,0,0,0.08) !important; }
+.welcome-card { background: linear-gradient(135deg, rgba(79,172,254,0.02) 0%, rgba(143,107,255,0.03) 100%); }
+
+/* Keep designated accent-blue text constant across themes */
+.always-blue { color: var(--accent-2) !important; }
+body.light-mode .date-created{background:rgba(0,0,0,0.02); border:1px solid rgba(0,0,0,0.08)}
+body.light-mode form input,body.light-mode form textarea{background:rgba(0,0,0,0.01); border:1px solid rgba(0,0,0,0.08)}
+body.light-mode .btn.secondary{border:1px solid rgba(0,0,0,0.08)}
+
+/* Headings with Space Grotesk font */
+.site-header h1, h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
+.top-nav li a:hover{color:var(--accent-2);border-bottom-color:var(--accent-2)}
+.top-nav li a.active{color:var(--accent-2);border-bottom-color:var(--accent)}
+
+.site-header{display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;background:var(--surface);border-bottom:1px solid var(--card-border);transition:background-color 0.4s ease,border-color 0.4s ease}
+.site-header h1{margin:0;font-size:1.1rem;background:linear-gradient(90deg,#4facfe,#8f6bff,#ff7ab6,#4facfe);background-size:200% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:titleGradientShift 8s ease-in-out infinite}
+
+@keyframes titleGradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.main-nav{list-style:none;margin:0;padding:0;display:flex;gap:1rem}
+.main-nav li a{text-decoration:none;color:var(--text);padding:.25rem .5rem;border-radius:4px;transition:all 0.4s cubic-bezier(0.4, 0, 0.2, 1)}
+.main-nav li a:hover{background:rgba(255,255,255,0.02)}
+
+.container{max-width:1100px;margin:1.5rem auto;padding:0 2rem}
+section{margin-bottom:1.5rem}
+.hero{padding:2.4rem;background:var(--surface-2);border-radius:8px;border:1px solid var(--card-border)}
+.updates-list{display:flex;flex-direction:column;gap:0.75rem;margin-top:0.75rem}
+.update-item{padding:1rem;background:var(--surface-2);border:1px solid var(--card-border);border-radius:8px}
+.update-meta{display:flex;gap:0.75rem;align-items:center;margin-bottom:0.5rem}
+.update-tag{display:inline-block;padding:0.2rem 0.5rem;border-radius:6px;background:rgba(91,33,182,0.18);color:var(--text);font-size:0.8rem}
+.update-date{color:var(--muted);font-size:0.85rem}
+
+/* Welcome section */
+.welcome-subtitle{font-size:1.2rem;color:var(--accent-2);font-weight:500;margin:.5rem 0 1rem}
+.welcome-description{font-size:1rem;color:var(--text);line-height:1.8;margin:1rem 0 2rem}
+.welcome-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:2rem 0}
+.welcome-card {
+  padding: 1.5rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  transition: box-shadow 0.55s cubic-bezier(0.33, 1, 0.68, 1), background 0.55s cubic-bezier(0.33, 1, 0.68, 1), border-color 0.55s cubic-bezier(0.33, 1, 0.68, 1), transform 0.55s cubic-bezier(0.33, 1, 0.68, 1);
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+.card-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 0 1rem 0;
+  color: var(--accent-2);
+  transition: transform 1.1s cubic-bezier(0.33, 1, 0.68, 1);
+}
+.welcome-card:hover .card-icon {
+  transform: scale(1.1);
+}
+.welcome-card:hover {
+  background: var(--card-bg);
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+}
+.welcome-card h4 {
+  margin: 0 0 .5rem;
+  color: var(--accent-2);
+  font-size: 1.1rem;
+}
+.welcome-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Buttons / cards for sections */
+.section-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem}
+.section-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: .6rem;
+  padding: 1.25rem 1.4rem;
+  background: linear-gradient(180deg,rgba(255,255,255,0.01),rgba(255,255,255,0.00));
+  border: 1px solid rgba(255,255,255,0.04);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(2,6,23,0.6);
+  transition: box-shadow 1.1s cubic-bezier(0.33, 1, 0.68, 1), background 1.1s cubic-bezier(0.33, 1, 0.68, 1), border-color 1.1s cubic-bezier(0.33, 1, 0.68, 1), transform 1.1s cubic-bezier(0.33, 1, 0.68, 1);
+  text-decoration: none;
+  color: inherit;
+  min-height: 180px;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+/* Ensure .section-card links are clickable and styled as links */
+.section-card[href],
+.section-card a {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+  pointer-events: auto;
+}
+
+.section-card a:focus, .section-card:focus {
+  outline: 2px solid var(--accent-2, #2563eb);
+  outline-offset: 2px;
+}
+.section-card:hover, .section-card:focus {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 60px rgba(2,6,23,0.75);
+  text-decoration: none;
+}
+.section-card h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--text);
+}
+.section-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: .95rem;
+}
+.card-status {
+  display: block;
+  margin-top: 0.8rem;
+  padding: 0 0.15rem;
+  font-size: 0.75rem;
+  color: var(--muted);
+  opacity: 0.8;
+  font-style: italic;
+  text-align: left;
+  overflow: visible;
+  white-space: nowrap;
+}
+
+/* Headings spacing and article padding to avoid edge contact */
+h1,h2,h3{margin:0 0 .6rem;padding-left:0;font-family:'Space Grotesk',sans-serif}
+article{padding:0.6rem 0 1rem}
+.section-actions{margin-top:auto;display:flex;align-items:center;gap:.5rem;width:100%}
+  
+  
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .3rem .6rem;
+  border-radius: 6px;
+  border: none;
+  background: linear-gradient(90deg,var(--accent),var(--accent-2));
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Outfit',sans-serif;
+  font-size: 0.85rem;
+  transition: background 1.1s cubic-bezier(0.33, 1, 0.68, 1), color 1.1s cubic-bezier(0.33, 1, 0.68, 1), border-color 1.1s cubic-bezier(0.33, 1, 0.68, 1), box-shadow 1.1s cubic-bezier(0.33, 1, 0.68, 1);
+}
+.btn.secondary {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: background 1.1s cubic-bezier(0.33, 1, 0.68, 1), color 1.1s cubic-bezier(0.33, 1, 0.68, 1), border-color 1.1s cubic-bezier(0.33, 1, 0.68, 1), box-shadow 1.1s cubic-bezier(0.33, 1, 0.68, 1);
+}
+  
+  
+.top-nav, .top-nav ul, .top-nav li, .top-nav li a, .theme-toggle {
+  transition: background 1.1s cubic-bezier(0.33, 1, 0.68, 1), color 1.1s cubic-bezier(0.33, 1, 0.68, 1), border-color 1.1s cubic-bezier(0.33, 1, 0.68, 1), box-shadow 1.1s cubic-bezier(0.33, 1, 0.68, 1);
+}
+.btn.secondary{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,0.06);transition:all 0.4s cubic-bezier(0.4, 0, 0.2, 1)}
+
+/* Breadcrumb / back link */
+.back-link{display:inline-block;color:var(--accent);text-decoration:none;margin-bottom:.75rem;transition:all 0.4s cubic-bezier(0.4, 0, 0.2, 1)}
+
+/* Header brand / logo */
+.brand{display:flex;align-items:center;gap:0.75rem}
+.logo{width:52px;height:52px;display:block;object-fit:cover;border-radius:8px}
+@media(max-width:600px){.logo{width:40px;height:40px}}
+
+/* responsive */
+@media(max-width:900px){
+  .site-header{padding:.9rem 1rem}
+  .container{padding:0 1rem}
+}
+@media(max-width:600px){
+  .site-header{padding:.75rem 0.75rem}
+  .section-grid{grid-template-columns:1fr}
+  
+  .top-nav ul {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    justify-content: center;
+  }
+  
+  .top-nav li {
+    flex-shrink: 0;
+  }
+  
+  .top-nav li:not(.search-container) {
+    font-size: 0.85rem;
+  }
+  
+  .top-nav li a {
+    font-size: 0.85rem;
+  }
+  
+  .theme-toggle {
+    display: inline-flex !important;
+    font-size: 0.85rem;
+    padding: 0.5rem 0.65rem;
+    white-space: nowrap;
+    min-height: 44px;
+    min-width: 44px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1000;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  
+  .search-container {
+    order: 10;
+    flex-basis: 100%;
+  }
+}
+
+/* small form and general controls */
+form input,form textarea{width:100%;padding:.85rem;margin:.6rem 0;border:1px solid rgba(255,255,255,0.06);border-radius:8px;background:rgba(255,255,255,0.01);color:var(--text);font-family:'Inter',sans-serif;transition:all 0.4s cubic-bezier(0.4, 0, 0.2, 1)}
+form textarea{min-height:140px;resize:vertical}
+button{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;border:none;padding:.6rem 1rem;border-radius:6px;cursor:pointer;font-family:'Outfit',sans-serif;transition:all 0.4s cubic-bezier(0.4, 0, 0.2, 1)}
+
+/* Date created */
+.date-created{display:inline-block;padding:.4rem .75rem;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:6px;color:var(--muted);font-size:0.85rem;margin-top:1rem;transition:all 0.4s cubic-bezier(0.4, 0, 0.2, 1)}
+
+/* Feature list styling */
+.feature-list{list-style:none;padding:0;margin:1rem 0}
+.feature-list li{padding:0.75rem 0 0.75rem 1.5rem;position:relative;color:var(--text);line-height:1.7}
+.feature-list li:before{content:"●";position:absolute;left:0;color:var(--accent);font-weight:bold}
+.feature-list li strong{color:var(--accent-2)}
+
+/* Toggle button and content */
+.toggle-btn{display:flex;align-items:center;gap:.5rem;padding:.75rem 0;margin:.5rem 0;background:none;border:none;color:var(--text);cursor:pointer;font-weight:600;transition:all 0.4s cubic-bezier(0.4, 0, 0.2, 1);font-family:'Space Grotesk', sans-serif;font-size:1.3rem;text-align:left;width:100%;letter-spacing:0.01em}
+.toggle-btn:hover{color:var(--accent);transform:translateX(4px)}
+.toggle-btn::before{content:"›";transition:transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);font-size:1.5rem;flex-shrink:0;color:var(--accent);font-weight:700;display:inline-block}
+.toggle-btn.expanded::before{transform:rotate(90deg)}
+.toggle-content{display:none}
+  
+  
+.toggle-content, .toggle-content.expanded {
+  transition: background 1.1s cubic-bezier(0.33, 1, 0.68, 1), color 1.1s cubic-bezier(0.33, 1, 0.68, 1), border-color 1.1s cubic-bezier(0.33, 1, 0.68, 1), box-shadow 1.1s cubic-bezier(0.33, 1, 0.68, 1), max-height 1.1s cubic-bezier(0.33, 1, 0.68, 1), opacity 1.1s cubic-bezier(0.33, 1, 0.68, 1);
+}
+.toggle-content.expanded{display:block;margin:.75rem 0;padding:1.5rem;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:8px}
+.light-mode .toggle-content.expanded{background:rgba(255,255,255,0.8);border-color:rgba(0,0,0,0.1)}
 
 /* Footer */
-footer{padding:1rem 0;text-align:center;color:var(--muted);font-size:.9rem}
+footer{margin-top:3rem;padding:2rem;background:var(--surface);border-top:1px solid rgba(255,255,255,0.04);text-align:center;color:var(--muted);font-size:0.9rem;transition:background-color 0.4s ease,border-color 0.4s ease}
 
-/* Utility */
-.toggle-content{margin-top:.5rem}
-.date-created{color:var(--muted);font-size:.85rem;margin-top:0.75rem}
+/* Last-edited timestamp styling */
+.last-edited{display:block;margin-top:0.6rem;color:var(--muted);font-size:0.85rem;opacity:0.95}
+.light-mode .last-edited{color:var(--muted)}
 
-/* Responsive tweaks */
-@media (max-width:720px){
-  .top-nav ul{gap:.4rem}
-  .search-container{min-width:unset;flex:1}
-  .container{padding:0.75rem}
-  .brand h1{font-size:1rem}
-}
+/* Floating last-edited badge (visible on every page) */
+.uu-last-edited-badge{position:fixed;right:18px;bottom:18px;background:var(--surface);color:var(--muted);padding:0.5rem 0.75rem;border-radius:10px;border:1px solid rgba(255,255,255,0.06);box-shadow:var(--shadow-soft);font-size:0.85rem;z-index:1200;cursor:pointer;transition:transform 0.2s ease,opacity 0.2s ease}
+.uu-last-edited-badge:hover{transform:translateY(-3px);opacity:0.98}
+.uu-last-edited-badge.collapsed{opacity:0.6;font-size:0.75rem;padding:0.28rem 0.4rem;border-radius:8px}
+.light-mode .uu-last-edited-badge{background:var(--surface);color:var(--muted);border-color:rgba(0,0,0,0.06)}
 
-/* Provide a subtle dark theme hook */
-body.dark{background:#0b1220;color:#e6eef8}
-body.dark .welcome-card{background:#071926;border-color:rgba(255,255,255,0.04)}
-
-/* ensure code blocks and math render nicely */
-pre,code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
-
-/* small accessibility improvements */
-:focus{outline:3px solid rgba(37,99,235,0.18);outline-offset:2px}
-
-            </svg>
-            <h4>Sensus</h4>
-            <p>Philosophy, culture, music, and aesthetics</p>
-          </a>
-        </div>
-        <p class="date-created">Created: December 14, 2025</p>
-      </section>
-
-      <section id="updates" class="hero">
-        <h3>Latest Update</h3>
-        <div class="updates-list">
-          <div class="update-item">
-            <div class="update-meta">
-              <span class="update-tag">Fix</span>
-              <span class="update-date">December 17, 2025 • 10:39</span>
-            </div>
-            <p>Fixed search navigation from subpages, ensured badge colours are consistent across cards and search results, and improved mobile compatibility for theme toggles.</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="about">
-        <button type="button" class="toggle-btn">About Universal Understanding</button>
-        <div class="toggle-content">
-          <p>A comprehensive portfolio of personal research and exploration across multiple disciplines, with particular focus on medicine and human health:</p>
-          <ul class="feature-list">
-            <li><strong>Scientia</strong> — Mathematical foundations, physics principles, quantum mechanics, and relativity. Foundational knowledge across mathematics and physics</li>
-            <li><strong>Vitalis</strong> — Medicine, specialised research, and advanced topics at the cutting edge of scientific exploration</li>
-            <li><strong>Logos</strong> — Computational approaches, algorithms, programming, and the mathematics of computation and information</li>
-            <li><strong>Sensus</strong> — Philosophy, culture, music, aesthetics, and the humanistic exploration of meaning and expression</li>
-          </ul>
-          <p>This site represents a passion for deepening understanding across multiple disciplines and exploring the interconnections between science, computation, philosophy, and culture.</p>
-        </div>
-      </section>
-
-      <section id="contact">
-        <h3>Contact</h3>
-        <form id="contactForm">
-          <input type="email" id="email" placeholder="Email" required>
-          <textarea id="message" placeholder="Message" required></textarea>
-          <button type="submit">Send</button>
-        </form>
-        <div id="formResult" aria-live="polite"></div>
-      </section>
-    </main>
-
-    <footer>
-      <p>Developer: Tanish Paul</p>
-    </footer>
-    <script src="script.js" defer></script>
-    <script id="sitemap-data" type="application/json">
-  [
-    {
-      "title": "Advanced & Research Medicine — Vitalis",
-      "path": "Vitalis/8-Advanced-Research-Medicine/index.html",
-      "dir": "Vitalis/8-Advanced-Research-Medicine",
-      "rawPath": "Vitalis/8-Advanced-Research-Medicine/index.html"
-    },
-    {
-      "title": "Advanced Calculus Concepts — Calculus",
-      "path": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-6-Advanced-Calculus-Concepts/index.html",
-      "dir": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-6-Advanced-Calculus-Concepts",
-      "rawPath": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-6-Advanced-Calculus-Concepts/index.html"
-    },
-    {
-      "title": "Advanced Linear Algebra & Functional Analysis — Mathematical Foundations",
-      "path": "Scientia/1-Mathematical-Foundations/1-13-Advanced-Linear-Algebra/index.html",
-      "dir": "Scientia/1-Mathematical-Foundations/1-13-Advanced-Linear-Algebra",
-      "rawPath": "Scientia/1-Mathematical-Foundations/1-13-Advanced-Linear-Algebra/index.html"
-    },
-    {
-      "title": "Algebra & Functions — Mathematical Foundations",
-      "path": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/index.html",
-      "dir": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions",
-      "rawPath": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/index.html"
-    },
-    {
-      "title": "Allosteric Regulation — Enzyme Kinetics & Regulation",
-      "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-2-Enzyme-Kinetics-and-Regulation/1-2-2-3-Allosteric-Regulation/index.html",
-      "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-2-Enzyme-Kinetics-and-Regulation/1-2-2-3-Allosteric-Regulation",
-      "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-2-Enzyme-Kinetics-and-Regulation/1-2-2-3-Allosteric-Regulation/index.html"
-    },
-    {
-      "title": "Amino Acid Classification — Amino Acids & Protein Structure",
-      "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-1-Amino-Acids-and-Protein-Structure/1-2-1-1-Amino-Acid-Classification/index.html",
-      "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-1-Amino-Acids-and-Protein-Structure/1-2-1-1-Amino-Acid-Classification",
-      "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-1-Amino-Acids-and-Protein-Structure/1-2-1-1-Amino-Acid-Classification/index.html"
-    },
-    {
-      "title": "Amino Acids & Protein Structure — Biochemistry",
-      "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-1-Amino-Acids-and-Protein-Structure/index.html",
-      "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-1-Amino-Acids-and-Protein-Structure",
-      "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-1-Amino-Acids-and-Protein-Structure/index.html"
-    },
-    {
-      "title": "Anatomy & Human Structure — Vitalis",
-      "path": "Vitalis/2-Anatomy-and-Human-Structure/index.html",
-      "dir": "Vitalis/2-Anatomy-and-Human-Structure",
-      "rawPath": "Vitalis/2-Anatomy-and-Human-Structure/index.html"
-    },
-    {
-      "title": "Apoptosis — Cell Death Mechanisms",
-      "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-6-Cell-Death-Mechanisms/1-1-6-1-Apoptosis/index.html",
-      "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-6-Cell-Death-Mechanisms/1-1-6-1-Apoptosis",
-      "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-6-Cell-Death-Mechanisms/1-1-6-1-Apoptosis/index.html"
-    },
-    {
-      "title": "ATP Production, Oxidative Phosphorylation, ΔG — Energy Metabolism & Bioenergetics",
-      "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-6-Energy-Metabolism-and-Bioenergetics/1-2-6-1-ATP-and-Oxidative-Phosphorylation/index.html",
-      "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-6-Energy-Metabolism-and-Bioenergetics/1-2-6-1-ATP-and-Oxidative-Phosphorylation",
-      "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-6-Energy-Metabolism-and-Bioenergetics/1-2-6-1-ATP-and-Oxidative-Phosphorylation/index.html"
-    },
-    {
-      "title": "Autophagy — Cell Death Mechanisms",
-      "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-6-Cell-Death-Mechanisms/1-1-6-3-Autophagy/index.html",
-      "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-6-Cell-Death-Mechanisms/1-1-6-3-Autophagy",
-      "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-6-Cell-Death-Mechanisms/1-1-6-3-Autophagy/index.html"
-    },
-    {
-      "title": "Basic Algebraic Manipulations — Algebra & Functions",
-      "path": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-1-Basic-Algebraic-Manipulations/index.html",
-      "dir": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-1-Basic-Algebraic-Manipulations",
-      "rawPath": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-1-Basic-Algebraic-Manipulations/index.html"
-    },
-    {
-      "title": "Binomial Theorem & Expansion — Algebra & Functions",
-      "path": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-6-Binomial-Theorem/index.html",
-      "dir": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-6-Binomial-Theorem",
-      "rawPath": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-6-Binomial-Theorem/index.html"
-    },
-    {
-      "title": "Biochemistry — Foundational Biomedical Sciences",
-      "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/index.html",
-      "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry",
-      "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/index.html"
-    },
-    {
-      "title": "Calcium-Mediated Signals — Signal Transduction Pathways",
-      "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-3-Signal-Transduction-Pathways/1-1-3-5-Calcium-Mediated-Signals/index.html",
-      "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-3-Signal-Transduction-Pathways/1-1-3-5-Calcium-Mediated-Signals",
-      "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-3-Signal-Transduction-Pathways/1-1-3-5-Calcium-Mediated-Signals/index.html"
-    },
-    {
-      "title": "Calculus — Mathematical Foundations",
-      "path": "Scientia/1-Mathematical-Foundations/1-2-Calculus/index.html",
-      "dir": "Scientia/1-Mathematical-Foundations/1-2-Calculus",
-      "rawPath": "Scientia/1-Mathematical-Foundations/1-2-Calculus/index.html"
-    },
-    {
-      "title": "Calculus Foundations — Calculus",
-      "path": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-1-Calculus-Foundations/index.html",
-      "dir": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-1-Calculus-Foundations",
-      "rawPath": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-1-Calculus-Foundations/index.html"
-    },
-    {
-      "title": "",
-      "path": "",
-      "dir": "",
-      "rawPath": ""
-    }
-  ]
-    </script>
-      </div>
-    </section>
-
-    <section id="contact">
-      <h3>Contact</h3>
-      <form id="contactForm">
-        <input type="email" id="email" placeholder="Email" required>
-        <textarea id="message" placeholder="Message" required></textarea>
-        <button type="submit">Send</button>
-      </form>
-      <div id="formResult" aria-live="polite"></div>
-    </section>
-  </main>
-
-  <footer>
-    <p>Developer: Tanish Paul</p>
-  </footer>
-  <script src="script.js" defer></script>
-</body>
-</html>
-
-  <script id="sitemap-data" type="application/json">
-[
-  {
-    "title": "Advanced & Research Medicine — Vitalis",
-    "path": "Vitalis/8-Advanced-Research-Medicine/index.html",
-    "dir": "Vitalis/8-Advanced-Research-Medicine",
-    "rawPath": "Vitalis/8-Advanced-Research-Medicine/index.html"
-  },
-  {
-    "title": "Advanced Calculus Concepts — Calculus",
-    "path": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-6-Advanced-Calculus-Concepts/index.html",
-    "dir": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-6-Advanced-Calculus-Concepts",
-    "rawPath": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-6-Advanced-Calculus-Concepts/index.html"
-  },
-  {
-    "title": "Advanced Linear Algebra & Functional Analysis — Mathematical Foundations",
-    "path": "Scientia/1-Mathematical-Foundations/1-13-Advanced-Linear-Algebra/index.html",
-    "dir": "Scientia/1-Mathematical-Foundations/1-13-Advanced-Linear-Algebra",
-    "rawPath": "Scientia/1-Mathematical-Foundations/1-13-Advanced-Linear-Algebra/index.html"
-  },
-  {
-    "title": "Algebra & Functions — Mathematical Foundations",
-    "path": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/index.html",
-    "dir": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions",
-    "rawPath": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/index.html"
-  },
-  {
-    "title": "Allosteric Regulation — Enzyme Kinetics & Regulation",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-2-Enzyme-Kinetics-and-Regulation/1-2-2-3-Allosteric-Regulation/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-2-Enzyme-Kinetics-and-Regulation/1-2-2-3-Allosteric-Regulation",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-2-Enzyme-Kinetics-and-Regulation/1-2-2-3-Allosteric-Regulation/index.html"
-  },
-  {
-    "title": "Amino Acid Classification — Amino Acids & Protein Structure",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-1-Amino-Acids-and-Protein-Structure/1-2-1-1-Amino-Acid-Classification/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-1-Amino-Acids-and-Protein-Structure/1-2-1-1-Amino-Acid-Classification",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-1-Amino-Acids-and-Protein-Structure/1-2-1-1-Amino-Acid-Classification/index.html"
-  },
-  {
-    "title": "Amino Acids & Protein Structure — Biochemistry",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-1-Amino-Acids-and-Protein-Structure/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-1-Amino-Acids-and-Protein-Structure",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-1-Amino-Acids-and-Protein-Structure/index.html"
-  },
-  {
-    "title": "Anatomy & Human Structure — Vitalis",
-    "path": "Vitalis/2-Anatomy-and-Human-Structure/index.html",
-    "dir": "Vitalis/2-Anatomy-and-Human-Structure",
-    "rawPath": "Vitalis/2-Anatomy-and-Human-Structure/index.html"
-  },
-  {
-    "title": "Apoptosis — Cell Death Mechanisms",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-6-Cell-Death-Mechanisms/1-1-6-1-Apoptosis/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-6-Cell-Death-Mechanisms/1-1-6-1-Apoptosis",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-6-Cell-Death-Mechanisms/1-1-6-1-Apoptosis/index.html"
-  },
-  {
-    "title": "ATP Production, Oxidative Phosphorylation, ΔG — Energy Metabolism & Bioenergetics",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-6-Energy-Metabolism-and-Bioenergetics/1-2-6-1-ATP-and-Oxidative-Phosphorylation/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-6-Energy-Metabolism-and-Bioenergetics/1-2-6-1-ATP-and-Oxidative-Phosphorylation",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-6-Energy-Metabolism-and-Bioenergetics/1-2-6-1-ATP-and-Oxidative-Phosphorylation/index.html"
-  },
-  {
-    "title": "Autophagy — Cell Death Mechanisms",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-6-Cell-Death-Mechanisms/1-1-6-3-Autophagy/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-6-Cell-Death-Mechanisms/1-1-6-3-Autophagy",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-6-Cell-Death-Mechanisms/1-1-6-3-Autophagy/index.html"
-  },
-  {
-    "title": "Basic Algebraic Manipulations — Algebra & Functions",
-    "path": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-1-Basic-Algebraic-Manipulations/index.html",
-    "dir": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-1-Basic-Algebraic-Manipulations",
-    "rawPath": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-1-Basic-Algebraic-Manipulations/index.html"
-  },
-  {
-    "title": "Binomial Theorem & Expansion — Algebra & Functions",
-    "path": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-6-Binomial-Theorem/index.html",
-    "dir": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-6-Binomial-Theorem",
-    "rawPath": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-6-Binomial-Theorem/index.html"
-  },
-  {
-    "title": "Biochemistry — Foundational Biomedical Sciences",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/index.html"
-  },
-  {
-    "title": "Calcium-Mediated Signals — Signal Transduction Pathways",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-3-Signal-Transduction-Pathways/1-1-3-5-Calcium-Mediated-Signals/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-3-Signal-Transduction-Pathways/1-1-3-5-Calcium-Mediated-Signals",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-3-Signal-Transduction-Pathways/1-1-3-5-Calcium-Mediated-Signals/index.html"
-  },
-  {
-    "title": "Calculus — Mathematical Foundations",
-    "path": "Scientia/1-Mathematical-Foundations/1-2-Calculus/index.html",
-    "dir": "Scientia/1-Mathematical-Foundations/1-2-Calculus",
-    "rawPath": "Scientia/1-Mathematical-Foundations/1-2-Calculus/index.html"
-  },
-  {
-    "title": "Calculus Foundations — Calculus",
-    "path": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-1-Calculus-Foundations/index.html",
-    "dir": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-1-Calculus-Foundations",
-    "rawPath": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-1-Calculus-Foundations/index.html"
-  },
-  {
-    "title": "cAMP-Mediated Signaling — Signal Transduction Pathways",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-3-Signal-Transduction-Pathways/1-1-3-3-cAMP-Mediated-Signaling/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-3-Signal-Transduction-Pathways/1-1-3-3-cAMP-Mediated-Signaling",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-3-Signal-Transduction-Pathways/1-1-3-3-cAMP-Mediated-Signaling/index.html"
-  },
-  {
-    "title": "Cancer Biology Basics — Cellular & Molecular Biology",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-7-Cancer-Biology-Basics/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-7-Cancer-Biology-Basics",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-7-Cancer-Biology-Basics/index.html"
-  },
-  {
-    "title": "Carbohydrate Metabolism — Biochemistry",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-3-Carbohydrate-Metabolism/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-3-Carbohydrate-Metabolism",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-3-Carbohydrate-Metabolism/index.html"
-  },
-  {
-    "title": "Cell Cycle & Checkpoints — Cellular & Molecular Biology",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-5-Cell-Cycle-and-Checkpoints/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-5-Cell-Cycle-and-Checkpoints",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-5-Cell-Cycle-and-Checkpoints/index.html"
-  },
-  {
-    "title": "Cell Death Mechanisms — Cellular & Molecular Biology",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-6-Cell-Death-Mechanisms/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-6-Cell-Death-Mechanisms",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-6-Cell-Death-Mechanisms/index.html"
-  },
-  {
-    "title": "Cell Structure & Organelles — Cellular & Molecular Biology",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-1-Cell-Structure-and-Organelles/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-1-Cell-Structure-and-Organelles",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-1-Cell-Structure-and-Organelles/index.html"
-  },
-  {
-    "title": "Cellular & Molecular Biology — Foundational Biomedical Sciences",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/index.html"
-  },
-  {
-    "title": "Checkpoints — Cell Cycle & Checkpoints",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-5-Cell-Cycle-and-Checkpoints/1-1-5-2-Checkpoints/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-5-Cell-Cycle-and-Checkpoints/1-1-5-2-Checkpoints",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-5-Cell-Cycle-and-Checkpoints/1-1-5-2-Checkpoints/index.html"
-  },
-  {
-    "title": "Chemistry For Medicine — Foundational Biomedical Sciences",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-4-Chemistry-For-Medicine/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-4-Chemistry-For-Medicine",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-4-Chemistry-For-Medicine/index.html"
-  },
-  {
-    "title": "Cholesterol Synthesis (HMG-CoA Reductase) — Lipid & Fatty Acid Metabolism",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-4-Lipid-and-Fatty-Acid-Metabolism/1-2-4-2-Cholesterol-Synthesis/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-4-Lipid-and-Fatty-Acid-Metabolism/1-2-4-2-Cholesterol-Synthesis",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-4-Lipid-and-Fatty-Acid-Metabolism/1-2-4-2-Cholesterol-Synthesis/index.html"
-  },
-  {
-    "title": "Clinical Medicine — Vitalis",
-    "path": "Vitalis/6-Clinical-Medicine/index.html",
-    "dir": "Vitalis/6-Clinical-Medicine",
-    "rawPath": "Vitalis/6-Clinical-Medicine/index.html"
-  },
-  {
-    "title": "Clinical Metabolic Disorders — Biochemistry",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-7-Clinical-Metabolic-Disorders/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-7-Clinical-Metabolic-Disorders",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-7-Clinical-Metabolic-Disorders/index.html"
-  },
-  {
-    "title": "Combinations & Permutations — Algebra & Functions",
-    "path": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-5-Combinations-Permutations/index.html",
-    "dir": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-5-Combinations-Permutations",
-    "rawPath": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-5-Combinations-Permutations/index.html"
-  },
-  {
-    "title": "Complex Numbers & Complex Analysis — Mathematical Foundations",
-    "path": "Scientia/1-Mathematical-Foundations/1-5-Complex-Numbers/index.html",
-    "dir": "Scientia/1-Mathematical-Foundations/1-5-Complex-Numbers",
-    "rawPath": "Scientia/1-Mathematical-Foundations/1-5-Complex-Numbers/index.html"
-  },
-  {
-    "title": "Cytoskeleton — Cell Structure & Organelles",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-1-Cell-Structure-and-Organelles/1-1-1-6-Cytoskeleton/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-1-Cell-Structure-and-Organelles/1-1-1-6-Cytoskeleton",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-1-Cell-Structure-and-Organelles/1-1-1-6-Cytoskeleton/index.html"
-  },
-  {
-    "title": "Definite Integrals — Integration",
-    "path": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-3-Definite-Integrals/index.html",
-    "dir": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-3-Definite-Integrals",
-    "rawPath": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-3-Definite-Integrals/index.html"
-  },
-  {
-    "title": "Differential Equations — Mathematical Foundations",
-    "path": "Scientia/1-Mathematical-Foundations/1-4-Differential-Equations/index.html",
-    "dir": "Scientia/1-Mathematical-Foundations/1-4-Differential-Equations",
-    "rawPath": "Scientia/1-Mathematical-Foundations/1-4-Differential-Equations/index.html"
-  },
-  {
-    "title": "Differential Geometry — Mathematical Foundations",
-    "path": "Scientia/1-Mathematical-Foundations/1-7-Differential-Geometry/index.html",
-    "dir": "Scientia/1-Mathematical-Foundations/1-7-Differential-Geometry",
-    "rawPath": "Scientia/1-Mathematical-Foundations/1-7-Differential-Geometry/index.html"
-  },
-  {
-    "title": "DNA Repair Defects — Cancer Biology Basics",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-7-Cancer-Biology-Basics/1-1-7-3-DNA-Repair-Defects/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-7-Cancer-Biology-Basics/1-1-7-3-DNA-Repair-Defects",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-7-Cancer-Biology-Basics/1-1-7-3-DNA-Repair-Defects/index.html"
-  },
-  {
-    "title": "DNA/RNA Precursors & Nucleoside Kinases — Nucleotide & Nucleic Acid Metabolism",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-5-Nucleotide-and-Nucleic-Acid-Metabolism/1-2-5-2-DNA-RNA-Precursors/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-5-Nucleotide-and-Nucleic-Acid-Metabolism/1-2-5-2-DNA-RNA-Precursors",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-5-Nucleotide-and-Nucleic-Acid-Metabolism/1-2-5-2-DNA-RNA-Precursors/index.html"
-  },
-  {
-    "title": "Endoplasmic Reticulum (ER) — Cell Structure & Organelles",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-1-Cell-Structure-and-Organelles/1-1-1-2-Endoplasmic-Reticulum/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-1-Cell-Structure-and-Organelles/1-1-1-2-Endoplasmic-Reticulum",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-1-Cell-Structure-and-Organelles/1-1-1-2-Endoplasmic-Reticulum/index.html"
-  },
-  {
-    "title": "Energy Metabolism & Bioenergetics — Biochemistry",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-6-Energy-Metabolism-and-Bioenergetics/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-6-Energy-Metabolism-and-Bioenergetics",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-6-Energy-Metabolism-and-Bioenergetics/index.html"
-  },
-  {
-    "title": "Enhancers/Silencers — Gene Expression & Regulation",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-4-Gene-Expression-and-Regulation/1-1-4-2-Enhancers-Silencers/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-4-Gene-Expression-and-Regulation/1-1-4-2-Enhancers-Silencers",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-4-Gene-Expression-and-Regulation/1-1-4-2-Enhancers-Silencers/index.html"
-  },
-  {
-    "title": "Enzyme Kinetics & Regulation — Biochemistry",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-2-Enzyme-Kinetics-and-Regulation/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-2-Enzyme-Kinetics-and-Regulation",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-2-Enzyme-Kinetics-and-Regulation/index.html"
-  },
-  {
-    "title": "Epigenetic Regulation — Gene Expression & Regulation",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-4-Gene-Expression-and-Regulation/1-1-4-3-Epigenetic-Regulation/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-4-Gene-Expression-and-Regulation/1-1-4-3-Epigenetic-Regulation",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-4-Gene-Expression-and-Regulation/1-1-4-3-Epigenetic-Regulation/index.html"
-  },
-  {
-    "title": "Exponential &amp; Logarithmic Calculus — Calculus",
-    "path": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-3-Exponential-and-Logarithmic-Calculus/index.html",
-    "dir": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-3-Exponential-and-Logarithmic-Calculus",
-    "rawPath": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-3-Exponential-and-Logarithmic-Calculus/index.html"
-  },
-  {
-    "title": "Exponents, Logarithms & Identities — Algebra & Functions",
-    "path": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-2-Exponents-Logarithms-Identities/index.html",
-    "dir": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-2-Exponents-Logarithms-Identities",
-    "rawPath": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-2-Exponents-Logarithms-Identities/index.html"
-  },
-  {
-    "title": "Foundational Biomedical Sciences — Vitalis",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/index.html"
-  },
-  {
-    "title": "Fourier & Transform Methods — Mathematical Foundations",
-    "path": "Scientia/1-Mathematical-Foundations/1-9-Fourier-and-Transform-Methods/index.html",
-    "dir": "Scientia/1-Mathematical-Foundations/1-9-Fourier-and-Transform-Methods",
-    "rawPath": "Scientia/1-Mathematical-Foundations/1-9-Fourier-and-Transform-Methods/index.html"
-  },
-  {
-    "title": "Fundamental Theorem of Calculus — Integration",
-    "path": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-1-Fundamental-Theorem-of-Calculus/index.html",
-    "dir": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-1-Fundamental-Theorem-of-Calculus",
-    "rawPath": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-1-Fundamental-Theorem-of-Calculus/index.html"
-  },
-  {
-    "title": "Gene Expression & Regulation — Cellular & Molecular Biology",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-4-Gene-Expression-and-Regulation/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-4-Gene-Expression-and-Regulation",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-4-Gene-Expression-and-Regulation/index.html"
-  },
-  {
-    "title": "Glycogen Metabolism — Carbohydrate Metabolism",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-3-Carbohydrate-Metabolism/1-2-3-2-Glycogen-Metabolism/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-3-Carbohydrate-Metabolism/1-2-3-2-Glycogen-Metabolism",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-3-Carbohydrate-Metabolism/1-2-3-2-Glycogen-Metabolism/index.html"
-  },
-  {
-    "title": "Glycogen Storage Diseases (Type I-IX) — Clinical Metabolic Disorders",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-7-Clinical-Metabolic-Disorders/1-2-7-2-Glycogen-Storage-Diseases/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-7-Clinical-Metabolic-Disorders/1-2-7-2-Glycogen-Storage-Diseases",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-7-Clinical-Metabolic-Disorders/1-2-7-2-Glycogen-Storage-Diseases/index.html"
-  },
-  {
-    "title": "Glycolysis, Gluconeogenesis, TCA Cycle — Carbohydrate Metabolism",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-3-Carbohydrate-Metabolism/1-2-3-1-Glycolysis-Gluconeogenesis-TCA/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-3-Carbohydrate-Metabolism/1-2-3-1-Glycolysis-Gluconeogenesis-TCA",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-3-Carbohydrate-Metabolism/1-2-3-1-Glycolysis-Gluconeogenesis-TCA/index.html"
-  },
-  {
-    "title": "Golgi Apparatus — Cell Structure & Organelles",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-1-Cell-Structure-and-Organelles/1-1-1-3-Golgi-Apparatus/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-1-Cell-Structure-and-Organelles/1-1-1-3-Golgi-Apparatus",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-1-Cell-Structure-and-Organelles/1-1-1-3-Golgi-Apparatus/index.html"
-  },
-  {
-    "title": "GPCRs — Signal Transduction Pathways",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-3-Signal-Transduction-Pathways/1-1-3-1-GPCRs/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-3-Signal-Transduction-Pathways/1-1-3-1-GPCRs",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-3-Signal-Transduction-Pathways/1-1-3-1-GPCRs/index.html"
-  },
-  {
-    "title": "Graphs & Transformations of Functions — Algebra & Functions",
-    "path": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-4-Graphs-Transformations/index.html",
-    "dir": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-4-Graphs-Transformations",
-    "rawPath": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-4-Graphs-Transformations/index.html"
-  },
-  {
-    "title": "Group Theory Basics [Advanced / Prep] — Mathematical Foundations",
-    "path": "Scientia/1-Mathematical-Foundations/1-10-Group-Theory-Basics/index.html",
-    "dir": "Scientia/1-Mathematical-Foundations/1-10-Group-Theory-Basics",
-    "rawPath": "Scientia/1-Mathematical-Foundations/1-10-Group-Theory-Basics/index.html"
-  },
-  {
-    "title": "Indefinite Integration — Integration",
-    "path": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-2-Indefinite-Integration/index.html",
-    "dir": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-2-Indefinite-Integration",
-    "rawPath": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-2-Indefinite-Integration/index.html"
-  },
-  {
-    "title": "Inequalities & Modulus Equations — Algebra & Functions",
-    "path": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-8-Inequalities-Modulus/index.html",
-    "dir": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-8-Inequalities-Modulus",
-    "rawPath": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-8-Inequalities-Modulus/index.html"
-  },
-  {
-    "title": "Inhibition — Enzyme Kinetics & Regulation",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-2-Enzyme-Kinetics-and-Regulation/1-2-2-2-Inhibition/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-2-Enzyme-Kinetics-and-Regulation/1-2-2-2-Inhibition",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-2-Enzyme-Kinetics-and-Regulation/1-2-2-2-Inhibition/index.html"
-  },
-  {
-    "title": "Integration — Calculus",
-    "path": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/index.html",
-    "dir": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration",
-    "rawPath": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/index.html"
-  },
-  {
-    "title": "Integration by Parts — Integration Techniques",
-    "path": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-4-Integration-Techniques/1-2-2-4-2-Integration-by-Parts/index.html",
-    "dir": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-4-Integration-Techniques/1-2-2-4-2-Integration-by-Parts",
-    "rawPath": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-4-Integration-Techniques/1-2-2-4-2-Integration-by-Parts/index.html"
-  },
-  {
-    "title": "Integration Techniques — Integration",
-    "path": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-4-Integration-Techniques/index.html",
-    "dir": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-4-Integration-Techniques",
-    "rawPath": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-4-Integration-Techniques/index.html"
-  },
-  {
-    "title": "IP₃/DAG Pathway — Signal Transduction Pathways",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-3-Signal-Transduction-Pathways/1-1-3-4-IP3-DAG-Pathway/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-3-Signal-Transduction-Pathways/1-1-3-4-IP3-DAG-Pathway",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-3-Signal-Transduction-Pathways/1-1-3-4-IP3-DAG-Pathway/index.html"
-  },
-  {
-    "title": "Linear Algebra — Mathematical Foundations",
-    "path": "Scientia/1-Mathematical-Foundations/1-3-Linear-Algebra/index.html",
-    "dir": "Scientia/1-Mathematical-Foundations/1-3-Linear-Algebra",
-    "rawPath": "Scientia/1-Mathematical-Foundations/1-3-Linear-Algebra/index.html"
-  },
-  {
-    "title": "Lipid & Fatty Acid Metabolism — Biochemistry",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-4-Lipid-and-Fatty-Acid-Metabolism/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-4-Lipid-and-Fatty-Acid-Metabolism",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-4-Lipid-and-Fatty-Acid-Metabolism/index.html"
-  },
-  {
-    "title": "Lipid Bilayer — Membrane Composition & Transport",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-2-Membrane-Composition-and-Transport/1-1-2-1-Lipid-Bilayer/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-2-Membrane-Composition-and-Transport/1-1-2-1-Lipid-Bilayer",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-2-Membrane-Composition-and-Transport/1-1-2-1-Lipid-Bilayer/index.html"
-  },
-  {
-    "title": "Lipoprotein Metabolism — Lipid & Fatty Acid Metabolism",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-4-Lipid-and-Fatty-Acid-Metabolism/1-2-4-3-Lipoprotein-Metabolism/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-4-Lipid-and-Fatty-Acid-Metabolism/1-2-4-3-Lipoprotein-Metabolism",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-4-Lipid-and-Fatty-Acid-Metabolism/1-2-4-3-Lipoprotein-Metabolism/index.html"
-  },
-  {
-    "title": "Logos — Universal Understanding",
-    "path": "Logos/index.html",
-    "dir": "Logos",
-    "rawPath": "Logos/index.html"
-  },
-  {
-    "title": "Lysosomes — Cell Structure & Organelles",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-1-Cell-Structure-and-Organelles/1-1-1-4-Lysosomes/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-1-Cell-Structure-and-Organelles/1-1-1-4-Lysosomes",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-1-Cell-Structure-and-Organelles/1-1-1-4-Lysosomes/index.html"
-  },
-  {
-    "title": "Mathematical Foundations — Scientia",
-    "path": "Scientia/1-Mathematical-Foundations/index.html",
-    "dir": "Scientia/1-Mathematical-Foundations",
-    "rawPath": "Scientia/1-Mathematical-Foundations/index.html"
-  },
-  {
-    "title": "Medical Specialties & Subspecialties — Vitalis",
-    "path": "Vitalis/7-Medical-Specialties/index.html",
-    "dir": "Vitalis/7-Medical-Specialties",
-    "rawPath": "Vitalis/7-Medical-Specialties/index.html"
-  },
-  {
-    "title": "Membrane Composition & Transport — Cellular & Molecular Biology",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-2-Membrane-Composition-and-Transport/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-2-Membrane-Composition-and-Transport",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-2-Membrane-Composition-and-Transport/index.html"
-  },
-  {
-    "title": "Membrane Proteins — Membrane Composition & Transport",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-2-Membrane-Composition-and-Transport/1-1-2-2-Membrane-Proteins/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-2-Membrane-Composition-and-Transport/1-1-2-2-Membrane-Proteins",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-6-Energy-Metabolism-and-Bioenergetics/index.html"
-  },
-  {
-    "title": "Michaelis-Menten Kinetics — Enzyme Kinetics & Regulation",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-2-Enzyme-Kinetics-and-Regulation/1-2-2-1-Michaelis-Menten-Kinetics/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-2-Enzyme-Kinetics-and-Regulation/1-2-2-1-Michaelis-Menten-Kinetics",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-2-Enzyme-Kinetics-and-Regulation/1-2-2-1-Michaelis-Menten-Kinetics/index.html"
-  },
-  {
-    "title": "Mitochondria — Cell Structure & Organelles",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-1-Cell-Structure-and-Organelles/1-1-1-5-Mitochondria/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-1-Cell-Structure-and-Organelles/1-1-1-5-Mitochondria",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-1-Cell-Structure-and-Organelles/1-1-1-5-Mitochondria/index.html"
-  },
-  {
-    "title": "Mitochondrial Disorders (Leigh, MELAS) — Clinical Metabolic Disorders",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-7-Clinical-Metabolic-Disorders/1-2-7-3-Mitochondrial-Disorders/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-7-Clinical-Metabolic-Disorders/1-2-7-3-Mitochondrial-Disorders",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-7-Clinical-Metabolic-Disorders/1-2-7-3-Mitochondrial-Disorders/index.html"
-  },
-  {
-    "title": "Molecular Chaperones — Amino Acids & Protein Structure",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-1-Amino-Acids-and-Protein-Structure/1-2-1-4-Molecular-Chaperones/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-1-Amino-Acids-and-Protein-Structure/1-2-1-4-Molecular-Chaperones",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-1-Amino-Acids-and-Protein-Structure/1-2-1-4-Molecular-Chaperones/index.html"
-  },
-  {
-    "title": "Molecular Genetics — Foundational Biomedical Sciences",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-3-Molecular-Genetics/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-3-Molecular-Genetics",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-3-Molecular-Genetics/index.html"
-  },
-  {
-    "title": "Multivariable Calculus — Calculus",
-    "path": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-5-Multivariable-Calculus/index.html",
-    "dir": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-5-Multivariable-Calculus",
-    "rawPath": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-5-Multivariable-Calculus/index.html"
-  },
-  {
-    "title": "Necroptosis — Cell Death Mechanisms",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-6-Cell-Death-Mechanisms/1-1-6-2-Necroptosis/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-6-Cell-Death-Mechanisms/1-1-6-2-Necroptosis",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-6-Cell-Death-Mechanisms/1-1-6-2-Necroptosis/index.html"
-  },
-  {
-    "title": "Nucleotide & Nucleic Acid Metabolism — Biochemistry",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-5-Nucleotide-and-Nucleic-Acid-Metabolism/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-5-Nucleotide-and-Nucleic-Acid-Metabolism",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-5-Nucleotide-and-Nucleic-Acid-Metabolism/index.html"
-  },
-  {
-    "title": "Nucleus — Cell Structure & Organelles",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-1-Cell-Structure-and-Organelles/1-1-1-1-Nucleus/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-1-Cell-Structure-and-Organelles/1-1-1-1-Nucleus",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-1-Cell-Structure-and-Organelles/1-1-1-1-Nucleus/index.html"
-  },
-  {
-    "title": "Number Theory — Mathematical Foundations",
-    "path": "Scientia/1-Mathematical-Foundations/1-11-Number-Theory/index.html",
-    "dir": "Scientia/1-Mathematical-Foundations/1-11-Number-Theory",
-    "rawPath": "Scientia/1-Mathematical-Foundations/1-11-Number-Theory/index.html"
-  },
-  {
-    "title": "Oncogenes — Cancer Biology Basics",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-7-Cancer-Biology-Basics/1-1-7-1-Oncogenes/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-7-Cancer-Biology-Basics/1-1-7-1-Oncogenes",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-7-Cancer-Biology-Basics/1-1-7-1-Oncogenes/index.html"
-  },
-  {
-    "title": "Partial Fractions — Integration Techniques",
-    "path": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-4-Integration-Techniques/1-2-2-4-3-Partial-Fractions/index.html",
-    "dir": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-4-Integration-Techniques/1-2-2-4-3-Partial-Fractions",
-    "rawPath": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-4-Integration-Techniques/1-2-2-4-3-Partial-Fractions/index.html"
-  },
-  {
-    "title": "Pathology — Vitalis",
-    "path": "Vitalis/4-Pathology/index.html",
-    "dir": "Vitalis/4-Pathology",
-    "rawPath": "Vitalis/4-Pathology/index.html"
-  },
-  {
-    "title": "Pharmacology — Vitalis",
-    "path": "Vitalis/5-Pharmacology/index.html",
-    "dir": "Vitalis/5-Pharmacology",
-    "rawPath": "Vitalis/5-Pharmacology/index.html"
-  },
-  {
-    "title": "Phases — Cell Cycle & Checkpoints",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-5-Cell-Cycle-and-Checkpoints/1-1-5-1-Phases/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-5-Cell-Cycle-and-Checkpoints/1-1-5-1-Phases",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-5-Cell-Cycle-and-Checkpoints/1-1-5-1-Phases/index.html"
-  },
-  {
-    "title": "Phenylketonuria (PKU) — Clinical Metabolic Disorders",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-7-Clinical-Metabolic-Disorders/1-2-7-1-Phenylketonuria/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-7-Clinical-Metabolic-Disorders/1-2-7-1-Phenylketonuria",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-7-Clinical-Metabolic-Disorders/1-2-7-1-Phenylketonuria/index.html"
-  },
-  {
-    "title": "Physics Foundations — Scientia",
-    "path": "Scientia/2-Physics-Foundations/index.html",
-    "dir": "Scientia/2-Physics-Foundations",
-    "rawPath": "Scientia/2-Physics-Foundations/index.html"
-  },
-  {
-    "title": "Physiology — Vitalis",
-    "path": "Vitalis/3-Physiology/index.html",
-    "dir": "Vitalis/3-Physiology",
-    "rawPath": "Vitalis/3-Physiology/index.html"
-  },
-  {
-    "title": "Prep for Analysis &amp; Topology — Calculus",
-    "path": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-7-Prep-for-Analysis-and-Topology/index.html",
-    "dir": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-7-Prep-for-Analysis-and-Topology",
-    "rawPath": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-7-Prep-for-Analysis-and-Topology/index.html"
-  },
-  {
-    "title": "Probability & Statistics — Mathematical Foundations",
-    "path": "Scientia/1-Mathematical-Foundations/1-8-Probability-and-Statistics/index.html",
-    "dir": "Scientia/1-Mathematical-Foundations/1-8-Probability-and-Statistics",
-    "rawPath": "Scientia/1-Mathematical-Foundations/1-8-Probability-and-Statistics/index.html"
-  },
-  {
-    "title": "Protein Hierarchy — Amino Acids & Protein Structure",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-1-Amino-Acids-and-Protein-Structure/1-2-1-2-Protein-Hierarchy/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-1-Amino-Acids-and-Protein-Structure/1-2-1-2-Protein-Hierarchy",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-1-Amino-Acids-and-Protein-Structure/1-2-1-2-Protein-Hierarchy/index.html"
-  },
-  {
-    "title": "Purine/Pyrimidine Synthesis & Salvage — Nucleotide & Nucleic Acid Metabolism",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-5-Nucleotide-and-Nucleic-Acid-Metabolism/1-2-5-1-Purine-Pyrimidine-Synthesis/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-5-Nucleotide-and-Nucleic-Acid-Metabolism/1-2-5-1-Purine-Pyrimidine-Synthesis",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-5-Nucleotide-and-Nucleic-Acid-Metabolism/1-2-5-1-Purine-Pyrimidine-Synthesis/index.html"
-  },
-  {
-    "title": "Quantum Mechanics — Scientia",
-    "path": "Scientia/3-Quantum-Mechanics/index.html",
-    "dir": "Scientia/3-Quantum-Mechanics",
-    "rawPath": "Scientia/3-Quantum-Mechanics/index.html"
-  },
-  {
-    "title": "Receptor Tyrosine Kinases (RTKs) — Signal Transduction Pathways",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-3-Signal-Transduction-Pathways/1-1-3-2-Receptor-Tyrosine-Kinases/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-3-Signal-Transduction-Pathways/1-1-3-2-Receptor-Tyrosine-Kinases",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-3-Signal-Transduction-Pathways/1-1-3-2-Receptor-Tyrosine-Kinases/index.html"
-  },
-  {
-    "title": "Redox Reactions: NADH/NAD⁺, FADH₂ — Energy Metabolism & Bioenergetics",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-6-Energy-Metabolism-and-Bioenergetics/1-2-6-2-Redox-Reactions/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-6-Energy-Metabolism-and-Bioenergetics/1-2-6-2-Redox-Reactions",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-6-Energy-Metabolism-and-Bioenergetics/1-2-6-2-Redox-Reactions/index.html"
-  },
-  {
-    "title": "Regulation by Insulin, Glucagon, AMP — Carbohydrate Metabolism",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-3-Carbohydrate-Metabolism/1-2-3-3-Hormonal-Regulation/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-3-Carbohydrate-Metabolism/1-2-3-3-Hormonal-Regulation",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-3-Carbohydrate-Metabolism/1-2-3-3-Hormonal-Regulation/index.html"
-  },
-  {
-    "title": "Regulatory Proteins — Cell Cycle & Checkpoints",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-5-Cell-Cycle-and-Checkpoints/1-1-5-3-Regulatory-Proteins/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-5-Cell-Cycle-and-Checkpoints/1-1-5-3-Regulatory-Proteins",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-5-Cell-Cycle-and-Checkpoints/1-1-5-3-Regulatory-Proteins/index.html"
-  },
-  {
-    "title": "Relativity — Scientia",
-    "path": "Scientia/4-Relativity/index.html",
-    "dir": "Scientia/4-Relativity",
-    "rawPath": "Scientia/4-Relativity/index.html"
-  },
-  {
-    "title": "Scientia — Universal Understanding",
-    "path": "Scientia/index.html",
-    "dir": "Scientia",
-    "rawPath": "Scientia/index.html"
-  },
-  {
-    "title": "Sensus — Universal Understanding",
-    "path": "Sensus/index.html",
-    "dir": "Sensus",
-    "rawPath": "Sensus/index.html"
-  },
-  {
-    "title": "Series &amp; Approximations — Calculus",
-    "path": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-4-Series-and-Approximations/index.html",
-    "dir": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-4-Series-and-Approximations",
-    "rawPath": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-4-Series-and-Approximations/index.html"
-  },
-  {
-    "title": "Sigma Notation & Summation — Algebra & Functions",
-    "path": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-7-Sigma-Notation-Summation/index.html",
-    "dir": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-7-Sigma-Notation-Summation",
-    "rawPath": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-7-Sigma-Notation-Summation/index.html"
-  },
-  {
-    "title": "Signal Transduction Pathways — Cellular & Molecular Biology",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-3-Signal-Transduction-Pathways/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-3-Signal-Transduction-Pathways",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-3-Signal-Transduction-Pathways/index.html"
-  },
-  {
-    "title": "Structural Motifs — Amino Acids & Protein Structure",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-1-Amino-Acids-and-Protein-Structure/1-2-1-3-Structural-Motifs/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-1-Amino-Acids-and-Protein-Structure/1-2-1-3-Structural-Motifs",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-1-Amino-Acids-and-Protein-Structure/1-2-1-3-Structural-Motifs/index.html"
-  },
-  {
-    "title": "Substitution — Integration Techniques",
-    "path": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-4-Integration-Techniques/1-2-2-4-1-Substitution/index.html",
-    "dir": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-4-Integration-Techniques/1-2-2-4-1-Substitution",
-    "rawPath": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-4-Integration-Techniques/1-2-2-4-1-Substitution/index.html"
-  },
-  {
-    "title": "Topology Basics — Mathematical Foundations",
-    "path": "Scientia/1-Mathematical-Foundations/1-12-Topology-Basics/index.html",
-    "dir": "Scientia/1-Mathematical-Foundations/1-12-Topology-Basics",
-    "rawPath": "Scientia/1-Mathematical-Foundations/1-12-Topology-Basics/index.html"
-  },
-  {
-    "title": "Transcendental Functions — Mathematical Foundations",
-    "path": "Scientia/1-Mathematical-Foundations/1-14-Transcendental-Functions/index.html",
-    "dir": "Scientia/1-Mathematical-Foundations/1-14-Transcendental-Functions",
-    "rawPath": "Scientia/1-Mathematical-Foundations/1-14-Transcendental-Functions/index.html"
-  },
-  {
-    "title": "Transcription Factors — Gene Expression & Regulation",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-4-Gene-Expression-and-Regulation/1-1-4-1-Transcription-Factors/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-4-Gene-Expression-and-Regulation/1-1-4-1-Transcription-Factors",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-4-Gene-Expression-and-Regulation/1-1-4-1-Transcription-Factors/index.html"
-  },
-  {
-    "title": "Transport Mechanisms — Membrane Composition & Transport",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-2-Membrane-Composition-and-Transport/1-1-2-3-Transport-Mechanisms/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-2-Membrane-Composition-and-Transport/1-1-2-3-Transport-Mechanisms",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-2-Membrane-Composition-and-Transport/1-1-2-3-Transport-Mechanisms/index.html"
-  },
-  {
-    "title": "Trigonometric & Inverse Functions — Algebra & Functions",
-    "path": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-3-Trigonometric-Inverse-Functions/index.html",
-    "dir": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-3-Trigonometric-Inverse-Functions",
-    "rawPath": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-3-Trigonometric-Inverse-Functions/index.html"
-  },
-  {
-    "title": "Trigonometric Identities & Substitutions — Integration Techniques",
-    "path": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-4-Integration-Techniques/1-2-2-4-4-Trig-Identities-and-Substitutions/index.html",
-    "dir": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-4-Integration-Techniques/1-2-2-4-4-Trig-Identities-and-Substitutions",
-    "rawPath": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-4-Integration-Techniques/1-2-2-4-4-Trig-Identities-and-Substitutions/index.html"
-  },
-  {
-    "title": "Tumour Suppressors — Cancer Biology Basics",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-7-Cancer-Biology-Basics/1-1-7-2-Tumour-Suppressors/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-7-Cancer-Biology-Basics/1-1-7-2-Tumour-Suppressors",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-7-Cancer-Biology-Basics/1-1-7-2-Tumour-Suppressors/index.html"
-  },
-  {
-    "title": "Universal Understanding",
-    "path": "index.html",
-    "dir": ".",
-    "rawPath": "index.html"
-  },
-  {
-    "title": "Vector & Tensor Calculus — Mathematical Foundations",
-    "path": "Scientia/1-Mathematical-Foundations/1-6-Vector-and-Tensor-Calculus/index.html",
-    "dir": "Scientia/1-Mathematical-Foundations/1-6-Vector-and-Tensor-Calculus",
-    "rawPath": "Scientia/1-Mathematical-Foundations/1-6-Vector-and-Tensor-Calculus/index.html"
-  },
-  {
-    "title": "Vitalis — Universal Understanding",
-    "path": "Vitalis/index.html",
-    "dir": "Vitalis",
-    "rawPath": "Vitalis/index.html"
-  },
-  {
-    "title": "β-Oxidation & Ketogenesis — Lipid & Fatty Acid Metabolism",
-    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-4-Lipid-and-Fatty-Acid-Metabolism/1-2-4-1-Beta-Oxidation-and-Ketogenesis/index.html",
-    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-4-Lipid-and-Fatty-Acid-Metabolism/1-2-4-1-Beta-Oxidation-and-Ketogenesis",
-    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-4-Lipid-and-Fatty-Acid-Metabolism/1-2-4-1-Beta-Oxidation-and-Ketogenesis/index.html"
-  }
-]
-  </script>
+@media (max-width:720px){.uu-last-edited-badge{right:12px;bottom:12px;font-size:0.78rem;padding:0.35rem 0.5rem}}
