@@ -3,94 +3,1097 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Algebra & Functions — Mathematical Foundations</title>
-  <link rel="stylesheet" href="../../../styles.css">
+  <title>Universal Understanding</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <nav class="top-nav">
     <ul>
-      <li><a href="../../../index.html">Home</a></li>
-      <li><a href="../../index.html" class="active">Scientia</a></li>
-      <li><a href="../../../Vitalis/index.html">Vitalis</a></li>
-      <li><a href="../../../Logos/index.html">Logos</a></li>
-      <li><a href="../../../Sensus/index.html">Sensus</a></li>
+      <li><a href="Scientia/index.html">Scientia</a></li>
+      <li><a href="Vitalis/index.html">Vitalis</a></li>
+      <li><a href="Logos/index.html">Logos</a></li>
+      <li><a href="Sensus/index.html">Sensus</a></li>
       <li class="search-container">
-        <input type="text" id="siteSearch" class="search-bar" placeholder="Search Scientia topics (SC)..." autocomplete="off">
+        <input type="text" id="siteSearch" class="search-bar" placeholder="Search topics..." autocomplete="off">
         <div id="searchResults" class="search-results"></div>
       </li>
-      <li><button class="theme-toggle" id="themeToggle">Dark</button></li>
+      <li><button type="button" class="theme-toggle" id="themeToggle">Dark</button></li>
     </ul>
   </nav>
 
   <header class="site-header container">
-    <div>
-      <a class="back-link" href="../index.html">← Back to Mathematical Foundations</a>
-      <h1>Algebra & Functions</h1>
+    <div class="brand">
+      <div>
+        <h1>Universal Understanding</h1>
+        <p style="margin:0;color:var(--muted);font-size:0.9rem">Scientia · Vitalis · Logos · Sensus</p>
+      </div>
     </div>
   </header>
+
   <main class="container">
-    <section class="hero">
-      <h2>Algebra & Functions</h2>
-      <p>Fundamental algebraic techniques, function properties, and mathematical identities forming the foundation for advanced mathematics.</p>
-      <p class="date-created">Created: December 15, 2025</p>
-      <div class="section-grid">
-        <a href="1-1-1-Basic-Algebraic-Manipulations/index.html" class="section-card">
-          <h3>Basic Algebraic Manipulations</h3>
-          <p>Foundational techniques for algebraic manipulation and simplification.</p>
-          <div class="section-actions"><span class="btn">Open</span><span class="card-ref">SC1.1.1</span></div>
-          <em class="card-status">Not started</em>
+    <section id="home" class="hero">
+      <h2>Welcome to Universal Understanding!</h2>
+      <p class="welcome-subtitle always-blue">A journey through science, medicine, computation, philosophy, and culture</p>
+      <p class="welcome-description">Explore interconnected domains spanning mathematics, physics, medicine, computation, philosophy, and the arts. Each section offers a distinct lens on understanding our world and improving human wellbeing.</p>
+      <div class="welcome-grid">
+        <a href="Scientia/index.html" class="welcome-card scientia">
+          <svg class="card-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="30" r="8" fill="currentColor" opacity="0.8"/>
+            <circle cx="35" cy="50" r="6" fill="currentColor" opacity="0.6"/>
+            <circle cx="65" cy="50" r="6" fill="currentColor" opacity="0.6"/>
+            <circle cx="50" cy="65" r="7" fill="currentColor" opacity="0.7"/>
+            <line x1="50" y1="38" x2="35" y2="46" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+            <line x1="50" y1="38" x2="65" y2="46" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+            <line x1="35" y1="56" x2="50" y2="62" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+            <line x1="65" y1="56" x2="50" y2="62" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+          </svg>
+          <h4>Scientia</h4>
+          <p>Mathematics, physics, and the foundations of natural science</p>
         </a>
-        <a href="1-1-2-Exponents-Logarithms-Identities/index.html" class="section-card">
-          <h3>Exponents, Logarithms & Identities</h3>
-          <p>Laws of exponents, logarithmic properties, and key identities.</p>
-          <div class="section-actions"><span class="btn">Open</span><span class="card-ref">SC1.1.2</span></div>
-          <em class="card-status">Not started</em>
+        <a href="Vitalis/index.html" class="welcome-card vitalis">
+          <svg class="card-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <line x1="50" y1="20" x2="50" y2="80" stroke="currentColor" stroke-width="2.5" opacity="0.8"/>
+            <circle cx="50" cy="18" r="4" fill="currentColor" opacity="0.8"/>
+            <path d="M 40 35 Q 45 38 50 35 Q 55 32 60 35" fill="none" stroke="currentColor" stroke-width="2" opacity="0.7"/>
+            <path d="M 40 48 Q 45 51 50 48 Q 55 45 60 48" fill="none" stroke="currentColor" stroke-width="2" opacity="0.7"/>
+            <path d="M 40 61 Q 45 64 50 61 Q 55 58 60 61" fill="none" stroke="currentColor" stroke-width="2" opacity="0.7"/>
+            <circle cx="50" cy="80" r="3" fill="currentColor" opacity="0.8"/>
+          </svg>
+          <h4>Vitalis</h4>
+          <p>Medicine, specialised research, and advanced topics</p>
         </a>
-        <a href="1-1-3-Trigonometric-Inverse-Functions/index.html" class="section-card">
-          <h3>Trigonometric & Inverse Functions</h3>
-          <p>Trigonometric functions, inverse functions, and their properties.</p>
-          <div class="section-actions"><span class="btn">Open</span><span class="card-ref">SC1.1.3</span></div>
-          <em class="card-status">Not started</em>
+        <a href="Logos/index.html" class="welcome-card logos">
+          <svg class="card-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <rect x="25" y="30" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.8"/>
+            <rect x="60" y="30" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.8"/>
+            <rect x="25" y="60" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.8"/>
+            <rect x="60" y="60" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.8"/>
+            <line x1="40" y1="37" x2="60" y2="37" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+            <line x1="32" y1="45" x2="32" y2="60" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+            <line x1="68" y1="45" x2="68" y2="60" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+            <line x1="40" y1="67" x2="60" y2="67" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+          </svg>
+          <h4>Logos</h4>
+          <p>Computation, algorithms, and information</p>
         </a>
-        <a href="1-1-4-Graphs-Transformations/index.html" class="section-card">
-          <h3>Graphs & Transformations of Functions</h3>
-          <p>Function graphing, translations, reflections, and transformations.</p>
-          <div class="section-actions"><span class="btn">Open</span><span class="card-ref">SC1.1.4</span></div>
-          <em class="card-status">Not started</em>
-        </a>
-        <a href="1-1-5-Combinations-Permutations/index.html" class="section-card">
-          <h3>Combinations & Permutations</h3>
-          <p>Counting principles, arrangements, and selection methods.</p>
-          <div class="section-actions"><span class="btn">Open</span><span class="card-ref">SC1.1.5</span></div>
-          <em class="card-status">Not started</em>
-        </a>
-        <a href="1-1-6-Binomial-Theorem/index.html" class="section-card">
-          <h3>Binomial Theorem & Expansion</h3>
-          <p>Binomial expansion, Pascal's triangle, and applications.</p>
-          <div class="section-actions"><span class="btn">Open</span><span class="card-ref">SC1.1.6</span></div>
-          <em class="card-status">Not started</em>
-        </a>
-        <a href="1-1-7-Sigma-Notation-Summation/index.html" class="section-card">
-          <h3>Sigma Notation & Summation</h3>
-          <p>Summation notation, series, and summation techniques.</p>
-          <div class="section-actions"><span class="btn">Open</span><span class="card-ref">SC1.1.7</span></div>
-          <em class="card-status">Not started</em>
-        </a>
-        <a href="1-1-8-Inequalities-Modulus/index.html" class="section-card">
-          <h3>Inequalities & Modulus Equations</h3>
-          <p>Inequality solving, absolute value, and modulus properties.</p>
-          <div class="section-actions"><span class="btn">Open</span><span class="card-ref">SC1.1.8</span></div>
-          <em class="card-status">Not started</em>
+        <a href="Sensus/index.html" class="welcome-card sensus">
+          <svg class="card-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="45" r="22" fill="none" stroke="currentColor" stroke-width="2" opacity="0.7"/>
+            <circle cx="40" cy="35" r="3" fill="currentColor" opacity="0.8"/>
+            <circle cx="60" cy="35" r="3" fill="currentColor" opacity="0.8"/>
+            <path d="M 40 50 Q 50 58 60 50" fill="none" stroke="currentColor" stroke-width="2" opacity="0.6"/>
+            <path d="M 30 45 Q 25 42 22 35" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+            <path d="M 70 45 Q 75 42 78 35" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+          </svg>
+          <h4>Sensus</h4>
+          <p>Philosophy, culture, music, and aesthetics</p>
         </a>
       </div>
       <p class="date-created">Created: December 14, 2025</p>
+    </section>
+
+    <section id="updates" class="hero">
+      <h3>Latest Update</h3>
+      <div class="updates-list">
+        <div class="update-item">
+          <div class="update-meta">
+            <span class="update-tag">Fix</span>
+            <span class="update-date">December 17, 2025 • 10:39</span>
+          </div>
+          <p>Fixed search navigation from subpages, ensured badge colours are consistent across cards and search results, and improved mobile compatibility for theme toggles.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <button type="button" class="toggle-btn">About Universal Understanding</button>
+      <div class="toggle-content">
+        <p>A comprehensive portfolio of personal research and exploration across multiple disciplines, with particular focus on medicine and human health:</p>
+        <ul class="feature-list">
+          <li><strong>Scientia</strong> — Mathematical foundations, physics principles, quantum mechanics, and relativity. Foundational knowledge across mathematics and physics</li>
+          <li><strong>Vitalis</strong> — Medicine, specialised research, and advanced topics at the cutting edge of scientific exploration</li>
+          <li><strong>Logos</strong> — Computational approaches, algorithms, programming, and the mathematics of computation and information</li>
+          <li><strong>Sensus</strong> — Philosophy, culture, music, aesthetics, and the humanistic exploration of meaning and expression</li>
+        </ul>
+        <p>This site represents a passion for deepening understanding across multiple disciplines and exploring the interconnections between science, computation, philosophy, and culture.</p>
+  <!doctype html>
+  <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Universal Understanding</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <nav class="top-nav">
+      <ul>
+        <li><a href="Scientia/index.html">Scientia</a></li>
+        <li><a href="Vitalis/index.html">Vitalis</a></li>
+        <li><a href="Logos/index.html">Logos</a></li>
+        <li><a href="Sensus/index.html">Sensus</a></li>
+        <li class="search-container">
+          <input type="text" id="siteSearch" class="search-bar" placeholder="Search topics..." autocomplete="off">
+          <div id="searchResults" class="search-results"></div>
+        </li>
+        <li><button type="button" class="theme-toggle" id="themeToggle">Dark</button></li>
+      </ul>
+    </nav>
+
+    <header class="site-header container">
+      <div class="brand">
+        <div>
+          <h1>Universal Understanding</h1>
+          <p style="margin:0;color:var(--muted);font-size:0.9rem">Scientia · Vitalis · Logos · Sensus</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section id="home" class="hero">
+        <h2>Welcome to Universal Understanding!</h2>
+        <p class="welcome-subtitle always-blue">A journey through science, medicine, computation, philosophy, and culture</p>
+        <p class="welcome-description">Explore interconnected domains spanning mathematics, physics, medicine, computation, philosophy, and the arts. Each section offers a distinct lens on understanding our world and improving human wellbeing.</p>
+        <div class="welcome-grid">
+          <a href="Scientia/index.html" class="welcome-card scientia">
+            <svg class="card-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="50" cy="30" r="8" fill="currentColor" opacity="0.8"/>
+              <circle cx="35" cy="50" r="6" fill="currentColor" opacity="0.6"/>
+              <circle cx="65" cy="50" r="6" fill="currentColor" opacity="0.6"/>
+              <circle cx="50" cy="65" r="7" fill="currentColor" opacity="0.7"/>
+              <line x1="50" y1="38" x2="35" y2="46" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+              <line x1="50" y1="38" x2="65" y2="46" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+              <line x1="35" y1="56" x2="50" y2="62" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+              <line x1="65" y1="56" x2="50" y2="62" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+            </svg>
+            <h4>Scientia</h4>
+            <p>Mathematics, physics, and the foundations of natural science</p>
+          </a>
+          <a href="Vitalis/index.html" class="welcome-card vitalis">
+            <svg class="card-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <line x1="50" y1="20" x2="50" y2="80" stroke="currentColor" stroke-width="2.5" opacity="0.8"/>
+              <circle cx="50" cy="18" r="4" fill="currentColor" opacity="0.8"/>
+              <path d="M 40 35 Q 45 38 50 35 Q 55 32 60 35" fill="none" stroke="currentColor" stroke-width="2" opacity="0.7"/>
+              <path d="M 40 48 Q 45 51 50 48 Q 55 45 60 48" fill="none" stroke="currentColor" stroke-width="2" opacity="0.7"/>
+              <path d="M 40 61 Q 45 64 50 61 Q 55 58 60 61" fill="none" stroke="currentColor" stroke-width="2" opacity="0.7"/>
+              <circle cx="50" cy="80" r="3" fill="currentColor" opacity="0.8"/>
+            </svg>
+            <h4>Vitalis</h4>
+            <p>Medicine, specialised research, and advanced topics</p>
+          </a>
+          <a href="Logos/index.html" class="welcome-card logos">
+            <svg class="card-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <rect x="25" y="30" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.8"/>
+              <rect x="60" y="30" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.8"/>
+              <rect x="25" y="60" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.8"/>
+              <rect x="60" y="60" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.8"/>
+              <line x1="40" y1="37" x2="60" y2="37" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+              <line x1="32" y1="45" x2="32" y2="60" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+              <line x1="68" y1="45" x2="68" y2="60" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+              <line x1="40" y1="67" x2="60" y2="67" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+            </svg>
+            <h4>Logos</h4>
+            <p>Computation, algorithms, and information</p>
+          </a>
+          <a href="Sensus/index.html" class="welcome-card sensus">
+            <svg class="card-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="50" cy="45" r="22" fill="none" stroke="currentColor" stroke-width="2" opacity="0.7"/>
+              <circle cx="40" cy="35" r="3" fill="currentColor" opacity="0.8"/>
+              <circle cx="60" cy="35" r="3" fill="currentColor" opacity="0.8"/>
+              <path d="M 40 50 Q 50 58 60 50" fill="none" stroke="currentColor" stroke-width="2" opacity="0.6"/>
+              <path d="M 30 45 Q 25 42 22 35" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+              <path d="M 70 45 Q 75 42 78 35" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+            </svg>
+            <h4>Sensus</h4>
+            <p>Philosophy, culture, music, and aesthetics</p>
+          </a>
+        </div>
+        <p class="date-created">Created: December 14, 2025</p>
+      </section>
+
+      <section id="updates" class="hero">
+        <h3>Latest Update</h3>
+        <div class="updates-list">
+          <div class="update-item">
+            <div class="update-meta">
+              <span class="update-tag">Fix</span>
+              <span class="update-date">December 17, 2025 • 10:39</span>
+            </div>
+            <p>Fixed search navigation from subpages, ensured badge colours are consistent across cards and search results, and improved mobile compatibility for theme toggles.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="about">
+        <button type="button" class="toggle-btn">About Universal Understanding</button>
+        <div class="toggle-content">
+          <p>A comprehensive portfolio of personal research and exploration across multiple disciplines, with particular focus on medicine and human health:</p>
+          <ul class="feature-list">
+            <li><strong>Scientia</strong> — Mathematical foundations, physics principles, quantum mechanics, and relativity. Foundational knowledge across mathematics and physics</li>
+            <li><strong>Vitalis</strong> — Medicine, specialised research, and advanced topics at the cutting edge of scientific exploration</li>
+            <li><strong>Logos</strong> — Computational approaches, algorithms, programming, and the mathematics of computation and information</li>
+            <li><strong>Sensus</strong> — Philosophy, culture, music, aesthetics, and the humanistic exploration of meaning and expression</li>
+          </ul>
+          <p>This site represents a passion for deepening understanding across multiple disciplines and exploring the interconnections between science, computation, philosophy, and culture.</p>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h3>Contact</h3>
+        <form id="contactForm">
+          <input type="email" id="email" placeholder="Email" required>
+          <textarea id="message" placeholder="Message" required></textarea>
+          <button type="submit">Send</button>
+        </form>
+        <div id="formResult" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Developer: Tanish Paul</p>
+    </footer>
+    <script src="script.js" defer></script>
+    <script id="sitemap-data" type="application/json">
+  [
+    {
+      "title": "Advanced & Research Medicine — Vitalis",
+      "path": "Vitalis/8-Advanced-Research-Medicine/index.html",
+      "dir": "Vitalis/8-Advanced-Research-Medicine",
+      "rawPath": "Vitalis/8-Advanced-Research-Medicine/index.html"
+    },
+    {
+      "title": "Advanced Calculus Concepts — Calculus",
+      "path": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-6-Advanced-Calculus-Concepts/index.html",
+      "dir": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-6-Advanced-Calculus-Concepts",
+      "rawPath": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-6-Advanced-Calculus-Concepts/index.html"
+    },
+    {
+      "title": "Advanced Linear Algebra & Functional Analysis — Mathematical Foundations",
+      "path": "Scientia/1-Mathematical-Foundations/1-13-Advanced-Linear-Algebra/index.html",
+      "dir": "Scientia/1-Mathematical-Foundations/1-13-Advanced-Linear-Algebra",
+      "rawPath": "Scientia/1-Mathematical-Foundations/1-13-Advanced-Linear-Algebra/index.html"
+    },
+    {
+      "title": "Algebra & Functions — Mathematical Foundations",
+      "path": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/index.html",
+      "dir": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions",
+      "rawPath": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/index.html"
+    },
+    {
+      "title": "Allosteric Regulation — Enzyme Kinetics & Regulation",
+      "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-2-Enzyme-Kinetics-and-Regulation/1-2-2-3-Allosteric-Regulation/index.html",
+      "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-2-Enzyme-Kinetics-and-Regulation/1-2-2-3-Allosteric-Regulation",
+      "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-2-Enzyme-Kinetics-and-Regulation/1-2-2-3-Allosteric-Regulation/index.html"
+    },
+    {
+      "title": "Amino Acid Classification — Amino Acids & Protein Structure",
+      "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-1-Amino-Acids-and-Protein-Structure/1-2-1-1-Amino-Acid-Classification/index.html",
+      "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-1-Amino-Acids-and-Protein-Structure/1-2-1-1-Amino-Acid-Classification",
+      "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-1-Amino-Acids-and-Protein-Structure/1-2-1-1-Amino-Acid-Classification/index.html"
+    },
+    {
+      "title": "Amino Acids & Protein Structure — Biochemistry",
+      "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-1-Amino-Acids-and-Protein-Structure/index.html",
+      "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-1-Amino-Acids-and-Protein-Structure",
+      "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-1-Amino-Acids-and-Protein-Structure/index.html"
+    },
+    {
+      "title": "Anatomy & Human Structure — Vitalis",
+      "path": "Vitalis/2-Anatomy-and-Human-Structure/index.html",
+      "dir": "Vitalis/2-Anatomy-and-Human-Structure",
+      "rawPath": "Vitalis/2-Anatomy-and-Human-Structure/index.html"
+    },
+    {
+      "title": "Apoptosis — Cell Death Mechanisms",
+      "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-6-Cell-Death-Mechanisms/1-1-6-1-Apoptosis/index.html",
+      "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-6-Cell-Death-Mechanisms/1-1-6-1-Apoptosis",
+      "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-6-Cell-Death-Mechanisms/1-1-6-1-Apoptosis/index.html"
+    },
+    {
+      "title": "ATP Production, Oxidative Phosphorylation, ΔG — Energy Metabolism & Bioenergetics",
+      "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-6-Energy-Metabolism-and-Bioenergetics/1-2-6-1-ATP-and-Oxidative-Phosphorylation/index.html",
+      "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-6-Energy-Metabolism-and-Bioenergetics/1-2-6-1-ATP-and-Oxidative-Phosphorylation",
+      "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-6-Energy-Metabolism-and-Bioenergetics/1-2-6-1-ATP-and-Oxidative-Phosphorylation/index.html"
+    },
+    {
+      "title": "Autophagy — Cell Death Mechanisms",
+      "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-6-Cell-Death-Mechanisms/1-1-6-3-Autophagy/index.html",
+      "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-6-Cell-Death-Mechanisms/1-1-6-3-Autophagy",
+      "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-6-Cell-Death-Mechanisms/1-1-6-3-Autophagy/index.html"
+    },
+    {
+      "title": "Basic Algebraic Manipulations — Algebra & Functions",
+      "path": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-1-Basic-Algebraic-Manipulations/index.html",
+      "dir": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-1-Basic-Algebraic-Manipulations",
+      "rawPath": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-1-Basic-Algebraic-Manipulations/index.html"
+    },
+    {
+      "title": "Binomial Theorem & Expansion — Algebra & Functions",
+      "path": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-6-Binomial-Theorem/index.html",
+      "dir": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-6-Binomial-Theorem",
+      "rawPath": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-6-Binomial-Theorem/index.html"
+    },
+    {
+      "title": "Biochemistry — Foundational Biomedical Sciences",
+      "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/index.html",
+      "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry",
+      "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/index.html"
+    },
+    {
+      "title": "Calcium-Mediated Signals — Signal Transduction Pathways",
+      "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-3-Signal-Transduction-Pathways/1-1-3-5-Calcium-Mediated-Signals/index.html",
+      "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-3-Signal-Transduction-Pathways/1-1-3-5-Calcium-Mediated-Signals",
+      "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-3-Signal-Transduction-Pathways/1-1-3-5-Calcium-Mediated-Signals/index.html"
+    },
+    {
+      "title": "Calculus — Mathematical Foundations",
+      "path": "Scientia/1-Mathematical-Foundations/1-2-Calculus/index.html",
+      "dir": "Scientia/1-Mathematical-Foundations/1-2-Calculus",
+      "rawPath": "Scientia/1-Mathematical-Foundations/1-2-Calculus/index.html"
+    },
+    {
+      "title": "Calculus Foundations — Calculus",
+      "path": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-1-Calculus-Foundations/index.html",
+      "dir": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-1-Calculus-Foundations",
+      "rawPath": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-1-Calculus-Foundations/index.html"
+    },
+    {
+      "title": "",
+      "path": "",
+      "dir": "",
+      "rawPath": ""
+    }
+  ]
+    </script>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h3>Contact</h3>
+      <form id="contactForm">
+        <input type="email" id="email" placeholder="Email" required>
+        <textarea id="message" placeholder="Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+      <div id="formResult" aria-live="polite"></div>
     </section>
   </main>
 
   <footer>
     <p>Developer: Tanish Paul</p>
   </footer>
-
-  <script src="../../../script.js" defer></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
+
+  <script id="sitemap-data" type="application/json">
+[
+  {
+    "title": "Advanced & Research Medicine — Vitalis",
+    "path": "Vitalis/8-Advanced-Research-Medicine/index.html",
+    "dir": "Vitalis/8-Advanced-Research-Medicine",
+    "rawPath": "Vitalis/8-Advanced-Research-Medicine/index.html"
+  },
+  {
+    "title": "Advanced Calculus Concepts — Calculus",
+    "path": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-6-Advanced-Calculus-Concepts/index.html",
+    "dir": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-6-Advanced-Calculus-Concepts",
+    "rawPath": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-6-Advanced-Calculus-Concepts/index.html"
+  },
+  {
+    "title": "Advanced Linear Algebra & Functional Analysis — Mathematical Foundations",
+    "path": "Scientia/1-Mathematical-Foundations/1-13-Advanced-Linear-Algebra/index.html",
+    "dir": "Scientia/1-Mathematical-Foundations/1-13-Advanced-Linear-Algebra",
+    "rawPath": "Scientia/1-Mathematical-Foundations/1-13-Advanced-Linear-Algebra/index.html"
+  },
+  {
+    "title": "Algebra & Functions — Mathematical Foundations",
+    "path": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/index.html",
+    "dir": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions",
+    "rawPath": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/index.html"
+  },
+  {
+    "title": "Allosteric Regulation — Enzyme Kinetics & Regulation",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-2-Enzyme-Kinetics-and-Regulation/1-2-2-3-Allosteric-Regulation/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-2-Enzyme-Kinetics-and-Regulation/1-2-2-3-Allosteric-Regulation",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-2-Enzyme-Kinetics-and-Regulation/1-2-2-3-Allosteric-Regulation/index.html"
+  },
+  {
+    "title": "Amino Acid Classification — Amino Acids & Protein Structure",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-1-Amino-Acids-and-Protein-Structure/1-2-1-1-Amino-Acid-Classification/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-1-Amino-Acids-and-Protein-Structure/1-2-1-1-Amino-Acid-Classification",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-1-Amino-Acids-and-Protein-Structure/1-2-1-1-Amino-Acid-Classification/index.html"
+  },
+  {
+    "title": "Amino Acids & Protein Structure — Biochemistry",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-1-Amino-Acids-and-Protein-Structure/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-1-Amino-Acids-and-Protein-Structure",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-1-Amino-Acids-and-Protein-Structure/index.html"
+  },
+  {
+    "title": "Anatomy & Human Structure — Vitalis",
+    "path": "Vitalis/2-Anatomy-and-Human-Structure/index.html",
+    "dir": "Vitalis/2-Anatomy-and-Human-Structure",
+    "rawPath": "Vitalis/2-Anatomy-and-Human-Structure/index.html"
+  },
+  {
+    "title": "Apoptosis — Cell Death Mechanisms",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-6-Cell-Death-Mechanisms/1-1-6-1-Apoptosis/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-6-Cell-Death-Mechanisms/1-1-6-1-Apoptosis",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-6-Cell-Death-Mechanisms/1-1-6-1-Apoptosis/index.html"
+  },
+  {
+    "title": "ATP Production, Oxidative Phosphorylation, ΔG — Energy Metabolism & Bioenergetics",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-6-Energy-Metabolism-and-Bioenergetics/1-2-6-1-ATP-and-Oxidative-Phosphorylation/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-6-Energy-Metabolism-and-Bioenergetics/1-2-6-1-ATP-and-Oxidative-Phosphorylation",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-6-Energy-Metabolism-and-Bioenergetics/1-2-6-1-ATP-and-Oxidative-Phosphorylation/index.html"
+  },
+  {
+    "title": "Autophagy — Cell Death Mechanisms",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-6-Cell-Death-Mechanisms/1-1-6-3-Autophagy/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-6-Cell-Death-Mechanisms/1-1-6-3-Autophagy",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-6-Cell-Death-Mechanisms/1-1-6-3-Autophagy/index.html"
+  },
+  {
+    "title": "Basic Algebraic Manipulations — Algebra & Functions",
+    "path": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-1-Basic-Algebraic-Manipulations/index.html",
+    "dir": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-1-Basic-Algebraic-Manipulations",
+    "rawPath": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-1-Basic-Algebraic-Manipulations/index.html"
+  },
+  {
+    "title": "Binomial Theorem & Expansion — Algebra & Functions",
+    "path": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-6-Binomial-Theorem/index.html",
+    "dir": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-6-Binomial-Theorem",
+    "rawPath": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-6-Binomial-Theorem/index.html"
+  },
+  {
+    "title": "Biochemistry — Foundational Biomedical Sciences",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/index.html"
+  },
+  {
+    "title": "Calcium-Mediated Signals — Signal Transduction Pathways",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-3-Signal-Transduction-Pathways/1-1-3-5-Calcium-Mediated-Signals/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-3-Signal-Transduction-Pathways/1-1-3-5-Calcium-Mediated-Signals",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-3-Signal-Transduction-Pathways/1-1-3-5-Calcium-Mediated-Signals/index.html"
+  },
+  {
+    "title": "Calculus — Mathematical Foundations",
+    "path": "Scientia/1-Mathematical-Foundations/1-2-Calculus/index.html",
+    "dir": "Scientia/1-Mathematical-Foundations/1-2-Calculus",
+    "rawPath": "Scientia/1-Mathematical-Foundations/1-2-Calculus/index.html"
+  },
+  {
+    "title": "Calculus Foundations — Calculus",
+    "path": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-1-Calculus-Foundations/index.html",
+    "dir": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-1-Calculus-Foundations",
+    "rawPath": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-1-Calculus-Foundations/index.html"
+  },
+  {
+    "title": "cAMP-Mediated Signaling — Signal Transduction Pathways",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-3-Signal-Transduction-Pathways/1-1-3-3-cAMP-Mediated-Signaling/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-3-Signal-Transduction-Pathways/1-1-3-3-cAMP-Mediated-Signaling",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-3-Signal-Transduction-Pathways/1-1-3-3-cAMP-Mediated-Signaling/index.html"
+  },
+  {
+    "title": "Cancer Biology Basics — Cellular & Molecular Biology",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-7-Cancer-Biology-Basics/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-7-Cancer-Biology-Basics",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-7-Cancer-Biology-Basics/index.html"
+  },
+  {
+    "title": "Carbohydrate Metabolism — Biochemistry",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-3-Carbohydrate-Metabolism/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-3-Carbohydrate-Metabolism",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-3-Carbohydrate-Metabolism/index.html"
+  },
+  {
+    "title": "Cell Cycle & Checkpoints — Cellular & Molecular Biology",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-5-Cell-Cycle-and-Checkpoints/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-5-Cell-Cycle-and-Checkpoints",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-5-Cell-Cycle-and-Checkpoints/index.html"
+  },
+  {
+    "title": "Cell Death Mechanisms — Cellular & Molecular Biology",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-6-Cell-Death-Mechanisms/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-6-Cell-Death-Mechanisms",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-6-Cell-Death-Mechanisms/index.html"
+  },
+  {
+    "title": "Cell Structure & Organelles — Cellular & Molecular Biology",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-1-Cell-Structure-and-Organelles/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-1-Cell-Structure-and-Organelles",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-1-Cell-Structure-and-Organelles/index.html"
+  },
+  {
+    "title": "Cellular & Molecular Biology — Foundational Biomedical Sciences",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/index.html"
+  },
+  {
+    "title": "Checkpoints — Cell Cycle & Checkpoints",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-5-Cell-Cycle-and-Checkpoints/1-1-5-2-Checkpoints/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-5-Cell-Cycle-and-Checkpoints/1-1-5-2-Checkpoints",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-5-Cell-Cycle-and-Checkpoints/1-1-5-2-Checkpoints/index.html"
+  },
+  {
+    "title": "Chemistry For Medicine — Foundational Biomedical Sciences",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-4-Chemistry-For-Medicine/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-4-Chemistry-For-Medicine",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-4-Chemistry-For-Medicine/index.html"
+  },
+  {
+    "title": "Cholesterol Synthesis (HMG-CoA Reductase) — Lipid & Fatty Acid Metabolism",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-4-Lipid-and-Fatty-Acid-Metabolism/1-2-4-2-Cholesterol-Synthesis/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-4-Lipid-and-Fatty-Acid-Metabolism/1-2-4-2-Cholesterol-Synthesis",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-4-Lipid-and-Fatty-Acid-Metabolism/1-2-4-2-Cholesterol-Synthesis/index.html"
+  },
+  {
+    "title": "Clinical Medicine — Vitalis",
+    "path": "Vitalis/6-Clinical-Medicine/index.html",
+    "dir": "Vitalis/6-Clinical-Medicine",
+    "rawPath": "Vitalis/6-Clinical-Medicine/index.html"
+  },
+  {
+    "title": "Clinical Metabolic Disorders — Biochemistry",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-7-Clinical-Metabolic-Disorders/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-7-Clinical-Metabolic-Disorders",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-7-Clinical-Metabolic-Disorders/index.html"
+  },
+  {
+    "title": "Combinations & Permutations — Algebra & Functions",
+    "path": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-5-Combinations-Permutations/index.html",
+    "dir": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-5-Combinations-Permutations",
+    "rawPath": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-5-Combinations-Permutations/index.html"
+  },
+  {
+    "title": "Complex Numbers & Complex Analysis — Mathematical Foundations",
+    "path": "Scientia/1-Mathematical-Foundations/1-5-Complex-Numbers/index.html",
+    "dir": "Scientia/1-Mathematical-Foundations/1-5-Complex-Numbers",
+    "rawPath": "Scientia/1-Mathematical-Foundations/1-5-Complex-Numbers/index.html"
+  },
+  {
+    "title": "Cytoskeleton — Cell Structure & Organelles",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-1-Cell-Structure-and-Organelles/1-1-1-6-Cytoskeleton/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-1-Cell-Structure-and-Organelles/1-1-1-6-Cytoskeleton",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-1-Cell-Structure-and-Organelles/1-1-1-6-Cytoskeleton/index.html"
+  },
+  {
+    "title": "Definite Integrals — Integration",
+    "path": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-3-Definite-Integrals/index.html",
+    "dir": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-3-Definite-Integrals",
+    "rawPath": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-3-Definite-Integrals/index.html"
+  },
+  {
+    "title": "Differential Equations — Mathematical Foundations",
+    "path": "Scientia/1-Mathematical-Foundations/1-4-Differential-Equations/index.html",
+    "dir": "Scientia/1-Mathematical-Foundations/1-4-Differential-Equations",
+    "rawPath": "Scientia/1-Mathematical-Foundations/1-4-Differential-Equations/index.html"
+  },
+  {
+    "title": "Differential Geometry — Mathematical Foundations",
+    "path": "Scientia/1-Mathematical-Foundations/1-7-Differential-Geometry/index.html",
+    "dir": "Scientia/1-Mathematical-Foundations/1-7-Differential-Geometry",
+    "rawPath": "Scientia/1-Mathematical-Foundations/1-7-Differential-Geometry/index.html"
+  },
+  {
+    "title": "DNA Repair Defects — Cancer Biology Basics",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-7-Cancer-Biology-Basics/1-1-7-3-DNA-Repair-Defects/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-7-Cancer-Biology-Basics/1-1-7-3-DNA-Repair-Defects",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-7-Cancer-Biology-Basics/1-1-7-3-DNA-Repair-Defects/index.html"
+  },
+  {
+    "title": "DNA/RNA Precursors & Nucleoside Kinases — Nucleotide & Nucleic Acid Metabolism",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-5-Nucleotide-and-Nucleic-Acid-Metabolism/1-2-5-2-DNA-RNA-Precursors/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-5-Nucleotide-and-Nucleic-Acid-Metabolism/1-2-5-2-DNA-RNA-Precursors",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-5-Nucleotide-and-Nucleic-Acid-Metabolism/1-2-5-2-DNA-RNA-Precursors/index.html"
+  },
+  {
+    "title": "Endoplasmic Reticulum (ER) — Cell Structure & Organelles",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-1-Cell-Structure-and-Organelles/1-1-1-2-Endoplasmic-Reticulum/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-1-Cell-Structure-and-Organelles/1-1-1-2-Endoplasmic-Reticulum",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-1-Cell-Structure-and-Organelles/1-1-1-2-Endoplasmic-Reticulum/index.html"
+  },
+  {
+    "title": "Energy Metabolism & Bioenergetics — Biochemistry",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-6-Energy-Metabolism-and-Bioenergetics/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-6-Energy-Metabolism-and-Bioenergetics",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-6-Energy-Metabolism-and-Bioenergetics/index.html"
+  },
+  {
+    "title": "Enhancers/Silencers — Gene Expression & Regulation",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-4-Gene-Expression-and-Regulation/1-1-4-2-Enhancers-Silencers/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-4-Gene-Expression-and-Regulation/1-1-4-2-Enhancers-Silencers",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-4-Gene-Expression-and-Regulation/1-1-4-2-Enhancers-Silencers/index.html"
+  },
+  {
+    "title": "Enzyme Kinetics & Regulation — Biochemistry",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-2-Enzyme-Kinetics-and-Regulation/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-2-Enzyme-Kinetics-and-Regulation",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-2-Enzyme-Kinetics-and-Regulation/index.html"
+  },
+  {
+    "title": "Epigenetic Regulation — Gene Expression & Regulation",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-4-Gene-Expression-and-Regulation/1-1-4-3-Epigenetic-Regulation/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-4-Gene-Expression-and-Regulation/1-1-4-3-Epigenetic-Regulation",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-4-Gene-Expression-and-Regulation/1-1-4-3-Epigenetic-Regulation/index.html"
+  },
+  {
+    "title": "Exponential &amp; Logarithmic Calculus — Calculus",
+    "path": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-3-Exponential-and-Logarithmic-Calculus/index.html",
+    "dir": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-3-Exponential-and-Logarithmic-Calculus",
+    "rawPath": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-3-Exponential-and-Logarithmic-Calculus/index.html"
+  },
+  {
+    "title": "Exponents, Logarithms & Identities — Algebra & Functions",
+    "path": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-2-Exponents-Logarithms-Identities/index.html",
+    "dir": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-2-Exponents-Logarithms-Identities",
+    "rawPath": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-2-Exponents-Logarithms-Identities/index.html"
+  },
+  {
+    "title": "Foundational Biomedical Sciences — Vitalis",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/index.html"
+  },
+  {
+    "title": "Fourier & Transform Methods — Mathematical Foundations",
+    "path": "Scientia/1-Mathematical-Foundations/1-9-Fourier-and-Transform-Methods/index.html",
+    "dir": "Scientia/1-Mathematical-Foundations/1-9-Fourier-and-Transform-Methods",
+    "rawPath": "Scientia/1-Mathematical-Foundations/1-9-Fourier-and-Transform-Methods/index.html"
+  },
+  {
+    "title": "Fundamental Theorem of Calculus — Integration",
+    "path": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-1-Fundamental-Theorem-of-Calculus/index.html",
+    "dir": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-1-Fundamental-Theorem-of-Calculus",
+    "rawPath": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-1-Fundamental-Theorem-of-Calculus/index.html"
+  },
+  {
+    "title": "Gene Expression & Regulation — Cellular & Molecular Biology",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-4-Gene-Expression-and-Regulation/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-4-Gene-Expression-and-Regulation",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-4-Gene-Expression-and-Regulation/index.html"
+  },
+  {
+    "title": "Glycogen Metabolism — Carbohydrate Metabolism",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-3-Carbohydrate-Metabolism/1-2-3-2-Glycogen-Metabolism/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-3-Carbohydrate-Metabolism/1-2-3-2-Glycogen-Metabolism",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-3-Carbohydrate-Metabolism/1-2-3-2-Glycogen-Metabolism/index.html"
+  },
+  {
+    "title": "Glycogen Storage Diseases (Type I-IX) — Clinical Metabolic Disorders",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-7-Clinical-Metabolic-Disorders/1-2-7-2-Glycogen-Storage-Diseases/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-7-Clinical-Metabolic-Disorders/1-2-7-2-Glycogen-Storage-Diseases",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-7-Clinical-Metabolic-Disorders/1-2-7-2-Glycogen-Storage-Diseases/index.html"
+  },
+  {
+    "title": "Glycolysis, Gluconeogenesis, TCA Cycle — Carbohydrate Metabolism",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-3-Carbohydrate-Metabolism/1-2-3-1-Glycolysis-Gluconeogenesis-TCA/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-3-Carbohydrate-Metabolism/1-2-3-1-Glycolysis-Gluconeogenesis-TCA",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-3-Carbohydrate-Metabolism/1-2-3-1-Glycolysis-Gluconeogenesis-TCA/index.html"
+  },
+  {
+    "title": "Golgi Apparatus — Cell Structure & Organelles",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-1-Cell-Structure-and-Organelles/1-1-1-3-Golgi-Apparatus/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-1-Cell-Structure-and-Organelles/1-1-1-3-Golgi-Apparatus",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-1-Cell-Structure-and-Organelles/1-1-1-3-Golgi-Apparatus/index.html"
+  },
+  {
+    "title": "GPCRs — Signal Transduction Pathways",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-3-Signal-Transduction-Pathways/1-1-3-1-GPCRs/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-3-Signal-Transduction-Pathways/1-1-3-1-GPCRs",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-3-Signal-Transduction-Pathways/1-1-3-1-GPCRs/index.html"
+  },
+  {
+    "title": "Graphs & Transformations of Functions — Algebra & Functions",
+    "path": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-4-Graphs-Transformations/index.html",
+    "dir": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-4-Graphs-Transformations",
+    "rawPath": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-4-Graphs-Transformations/index.html"
+  },
+  {
+    "title": "Group Theory Basics [Advanced / Prep] — Mathematical Foundations",
+    "path": "Scientia/1-Mathematical-Foundations/1-10-Group-Theory-Basics/index.html",
+    "dir": "Scientia/1-Mathematical-Foundations/1-10-Group-Theory-Basics",
+    "rawPath": "Scientia/1-Mathematical-Foundations/1-10-Group-Theory-Basics/index.html"
+  },
+  {
+    "title": "Indefinite Integration — Integration",
+    "path": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-2-Indefinite-Integration/index.html",
+    "dir": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-2-Indefinite-Integration",
+    "rawPath": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-2-Indefinite-Integration/index.html"
+  },
+  {
+    "title": "Inequalities & Modulus Equations — Algebra & Functions",
+    "path": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-8-Inequalities-Modulus/index.html",
+    "dir": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-8-Inequalities-Modulus",
+    "rawPath": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-8-Inequalities-Modulus/index.html"
+  },
+  {
+    "title": "Inhibition — Enzyme Kinetics & Regulation",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-2-Enzyme-Kinetics-and-Regulation/1-2-2-2-Inhibition/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-2-Enzyme-Kinetics-and-Regulation/1-2-2-2-Inhibition",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-2-Enzyme-Kinetics-and-Regulation/1-2-2-2-Inhibition/index.html"
+  },
+  {
+    "title": "Integration — Calculus",
+    "path": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/index.html",
+    "dir": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration",
+    "rawPath": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/index.html"
+  },
+  {
+    "title": "Integration by Parts — Integration Techniques",
+    "path": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-4-Integration-Techniques/1-2-2-4-2-Integration-by-Parts/index.html",
+    "dir": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-4-Integration-Techniques/1-2-2-4-2-Integration-by-Parts",
+    "rawPath": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-4-Integration-Techniques/1-2-2-4-2-Integration-by-Parts/index.html"
+  },
+  {
+    "title": "Integration Techniques — Integration",
+    "path": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-4-Integration-Techniques/index.html",
+    "dir": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-4-Integration-Techniques",
+    "rawPath": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-4-Integration-Techniques/index.html"
+  },
+  {
+    "title": "IP₃/DAG Pathway — Signal Transduction Pathways",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-3-Signal-Transduction-Pathways/1-1-3-4-IP3-DAG-Pathway/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-3-Signal-Transduction-Pathways/1-1-3-4-IP3-DAG-Pathway",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-3-Signal-Transduction-Pathways/1-1-3-4-IP3-DAG-Pathway/index.html"
+  },
+  {
+    "title": "Linear Algebra — Mathematical Foundations",
+    "path": "Scientia/1-Mathematical-Foundations/1-3-Linear-Algebra/index.html",
+    "dir": "Scientia/1-Mathematical-Foundations/1-3-Linear-Algebra",
+    "rawPath": "Scientia/1-Mathematical-Foundations/1-3-Linear-Algebra/index.html"
+  },
+  {
+    "title": "Lipid & Fatty Acid Metabolism — Biochemistry",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-4-Lipid-and-Fatty-Acid-Metabolism/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-4-Lipid-and-Fatty-Acid-Metabolism",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-4-Lipid-and-Fatty-Acid-Metabolism/index.html"
+  },
+  {
+    "title": "Lipid Bilayer — Membrane Composition & Transport",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-2-Membrane-Composition-and-Transport/1-1-2-1-Lipid-Bilayer/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-2-Membrane-Composition-and-Transport/1-1-2-1-Lipid-Bilayer",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-2-Membrane-Composition-and-Transport/1-1-2-1-Lipid-Bilayer/index.html"
+  },
+  {
+    "title": "Lipoprotein Metabolism — Lipid & Fatty Acid Metabolism",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-4-Lipid-and-Fatty-Acid-Metabolism/1-2-4-3-Lipoprotein-Metabolism/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-4-Lipid-and-Fatty-Acid-Metabolism/1-2-4-3-Lipoprotein-Metabolism",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-4-Lipid-and-Fatty-Acid-Metabolism/1-2-4-3-Lipoprotein-Metabolism/index.html"
+  },
+  {
+    "title": "Logos — Universal Understanding",
+    "path": "Logos/index.html",
+    "dir": "Logos",
+    "rawPath": "Logos/index.html"
+  },
+  {
+    "title": "Lysosomes — Cell Structure & Organelles",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-1-Cell-Structure-and-Organelles/1-1-1-4-Lysosomes/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-1-Cell-Structure-and-Organelles/1-1-1-4-Lysosomes",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-1-Cell-Structure-and-Organelles/1-1-1-4-Lysosomes/index.html"
+  },
+  {
+    "title": "Mathematical Foundations — Scientia",
+    "path": "Scientia/1-Mathematical-Foundations/index.html",
+    "dir": "Scientia/1-Mathematical-Foundations",
+    "rawPath": "Scientia/1-Mathematical-Foundations/index.html"
+  },
+  {
+    "title": "Medical Specialties & Subspecialties — Vitalis",
+    "path": "Vitalis/7-Medical-Specialties/index.html",
+    "dir": "Vitalis/7-Medical-Specialties",
+    "rawPath": "Vitalis/7-Medical-Specialties/index.html"
+  },
+  {
+    "title": "Membrane Composition & Transport — Cellular & Molecular Biology",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-2-Membrane-Composition-and-Transport/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-2-Membrane-Composition-and-Transport",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-2-Membrane-Composition-and-Transport/index.html"
+  },
+  {
+    "title": "Membrane Proteins — Membrane Composition & Transport",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-2-Membrane-Composition-and-Transport/1-1-2-2-Membrane-Proteins/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-2-Membrane-Composition-and-Transport/1-1-2-2-Membrane-Proteins",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-6-Energy-Metabolism-and-Bioenergetics/index.html"
+  },
+  {
+    "title": "Michaelis-Menten Kinetics — Enzyme Kinetics & Regulation",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-2-Enzyme-Kinetics-and-Regulation/1-2-2-1-Michaelis-Menten-Kinetics/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-2-Enzyme-Kinetics-and-Regulation/1-2-2-1-Michaelis-Menten-Kinetics",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-2-Enzyme-Kinetics-and-Regulation/1-2-2-1-Michaelis-Menten-Kinetics/index.html"
+  },
+  {
+    "title": "Mitochondria — Cell Structure & Organelles",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-1-Cell-Structure-and-Organelles/1-1-1-5-Mitochondria/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-1-Cell-Structure-and-Organelles/1-1-1-5-Mitochondria",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-1-Cell-Structure-and-Organelles/1-1-1-5-Mitochondria/index.html"
+  },
+  {
+    "title": "Mitochondrial Disorders (Leigh, MELAS) — Clinical Metabolic Disorders",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-7-Clinical-Metabolic-Disorders/1-2-7-3-Mitochondrial-Disorders/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-7-Clinical-Metabolic-Disorders/1-2-7-3-Mitochondrial-Disorders",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-7-Clinical-Metabolic-Disorders/1-2-7-3-Mitochondrial-Disorders/index.html"
+  },
+  {
+    "title": "Molecular Chaperones — Amino Acids & Protein Structure",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-1-Amino-Acids-and-Protein-Structure/1-2-1-4-Molecular-Chaperones/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-1-Amino-Acids-and-Protein-Structure/1-2-1-4-Molecular-Chaperones",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-1-Amino-Acids-and-Protein-Structure/1-2-1-4-Molecular-Chaperones/index.html"
+  },
+  {
+    "title": "Molecular Genetics — Foundational Biomedical Sciences",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-3-Molecular-Genetics/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-3-Molecular-Genetics",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-3-Molecular-Genetics/index.html"
+  },
+  {
+    "title": "Multivariable Calculus — Calculus",
+    "path": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-5-Multivariable-Calculus/index.html",
+    "dir": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-5-Multivariable-Calculus",
+    "rawPath": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-5-Multivariable-Calculus/index.html"
+  },
+  {
+    "title": "Necroptosis — Cell Death Mechanisms",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-6-Cell-Death-Mechanisms/1-1-6-2-Necroptosis/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-6-Cell-Death-Mechanisms/1-1-6-2-Necroptosis",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-6-Cell-Death-Mechanisms/1-1-6-2-Necroptosis/index.html"
+  },
+  {
+    "title": "Nucleotide & Nucleic Acid Metabolism — Biochemistry",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-5-Nucleotide-and-Nucleic-Acid-Metabolism/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-5-Nucleotide-and-Nucleic-Acid-Metabolism",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-5-Nucleotide-and-Nucleic-Acid-Metabolism/index.html"
+  },
+  {
+    "title": "Nucleus — Cell Structure & Organelles",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-1-Cell-Structure-and-Organelles/1-1-1-1-Nucleus/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-1-Cell-Structure-and-Organelles/1-1-1-1-Nucleus",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-1-Cell-Structure-and-Organelles/1-1-1-1-Nucleus/index.html"
+  },
+  {
+    "title": "Number Theory — Mathematical Foundations",
+    "path": "Scientia/1-Mathematical-Foundations/1-11-Number-Theory/index.html",
+    "dir": "Scientia/1-Mathematical-Foundations/1-11-Number-Theory",
+    "rawPath": "Scientia/1-Mathematical-Foundations/1-11-Number-Theory/index.html"
+  },
+  {
+    "title": "Oncogenes — Cancer Biology Basics",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-7-Cancer-Biology-Basics/1-1-7-1-Oncogenes/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-7-Cancer-Biology-Basics/1-1-7-1-Oncogenes",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-7-Cancer-Biology-Basics/1-1-7-1-Oncogenes/index.html"
+  },
+  {
+    "title": "Partial Fractions — Integration Techniques",
+    "path": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-4-Integration-Techniques/1-2-2-4-3-Partial-Fractions/index.html",
+    "dir": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-4-Integration-Techniques/1-2-2-4-3-Partial-Fractions",
+    "rawPath": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-4-Integration-Techniques/1-2-2-4-3-Partial-Fractions/index.html"
+  },
+  {
+    "title": "Pathology — Vitalis",
+    "path": "Vitalis/4-Pathology/index.html",
+    "dir": "Vitalis/4-Pathology",
+    "rawPath": "Vitalis/4-Pathology/index.html"
+  },
+  {
+    "title": "Pharmacology — Vitalis",
+    "path": "Vitalis/5-Pharmacology/index.html",
+    "dir": "Vitalis/5-Pharmacology",
+    "rawPath": "Vitalis/5-Pharmacology/index.html"
+  },
+  {
+    "title": "Phases — Cell Cycle & Checkpoints",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-5-Cell-Cycle-and-Checkpoints/1-1-5-1-Phases/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-5-Cell-Cycle-and-Checkpoints/1-1-5-1-Phases",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-5-Cell-Cycle-and-Checkpoints/1-1-5-1-Phases/index.html"
+  },
+  {
+    "title": "Phenylketonuria (PKU) — Clinical Metabolic Disorders",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-7-Clinical-Metabolic-Disorders/1-2-7-1-Phenylketonuria/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-7-Clinical-Metabolic-Disorders/1-2-7-1-Phenylketonuria",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-7-Clinical-Metabolic-Disorders/1-2-7-1-Phenylketonuria/index.html"
+  },
+  {
+    "title": "Physics Foundations — Scientia",
+    "path": "Scientia/2-Physics-Foundations/index.html",
+    "dir": "Scientia/2-Physics-Foundations",
+    "rawPath": "Scientia/2-Physics-Foundations/index.html"
+  },
+  {
+    "title": "Physiology — Vitalis",
+    "path": "Vitalis/3-Physiology/index.html",
+    "dir": "Vitalis/3-Physiology",
+    "rawPath": "Vitalis/3-Physiology/index.html"
+  },
+  {
+    "title": "Prep for Analysis &amp; Topology — Calculus",
+    "path": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-7-Prep-for-Analysis-and-Topology/index.html",
+    "dir": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-7-Prep-for-Analysis-and-Topology",
+    "rawPath": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-7-Prep-for-Analysis-and-Topology/index.html"
+  },
+  {
+    "title": "Probability & Statistics — Mathematical Foundations",
+    "path": "Scientia/1-Mathematical-Foundations/1-8-Probability-and-Statistics/index.html",
+    "dir": "Scientia/1-Mathematical-Foundations/1-8-Probability-and-Statistics",
+    "rawPath": "Scientia/1-Mathematical-Foundations/1-8-Probability-and-Statistics/index.html"
+  },
+  {
+    "title": "Protein Hierarchy — Amino Acids & Protein Structure",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-1-Amino-Acids-and-Protein-Structure/1-2-1-2-Protein-Hierarchy/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-1-Amino-Acids-and-Protein-Structure/1-2-1-2-Protein-Hierarchy",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-1-Amino-Acids-and-Protein-Structure/1-2-1-2-Protein-Hierarchy/index.html"
+  },
+  {
+    "title": "Purine/Pyrimidine Synthesis & Salvage — Nucleotide & Nucleic Acid Metabolism",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-5-Nucleotide-and-Nucleic-Acid-Metabolism/1-2-5-1-Purine-Pyrimidine-Synthesis/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-5-Nucleotide-and-Nucleic-Acid-Metabolism/1-2-5-1-Purine-Pyrimidine-Synthesis",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-5-Nucleotide-and-Nucleic-Acid-Metabolism/1-2-5-1-Purine-Pyrimidine-Synthesis/index.html"
+  },
+  {
+    "title": "Quantum Mechanics — Scientia",
+    "path": "Scientia/3-Quantum-Mechanics/index.html",
+    "dir": "Scientia/3-Quantum-Mechanics",
+    "rawPath": "Scientia/3-Quantum-Mechanics/index.html"
+  },
+  {
+    "title": "Receptor Tyrosine Kinases (RTKs) — Signal Transduction Pathways",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-3-Signal-Transduction-Pathways/1-1-3-2-Receptor-Tyrosine-Kinases/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-3-Signal-Transduction-Pathways/1-1-3-2-Receptor-Tyrosine-Kinases",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-3-Signal-Transduction-Pathways/1-1-3-2-Receptor-Tyrosine-Kinases/index.html"
+  },
+  {
+    "title": "Redox Reactions: NADH/NAD⁺, FADH₂ — Energy Metabolism & Bioenergetics",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-6-Energy-Metabolism-and-Bioenergetics/1-2-6-2-Redox-Reactions/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-6-Energy-Metabolism-and-Bioenergetics/1-2-6-2-Redox-Reactions",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-6-Energy-Metabolism-and-Bioenergetics/1-2-6-2-Redox-Reactions/index.html"
+  },
+  {
+    "title": "Regulation by Insulin, Glucagon, AMP — Carbohydrate Metabolism",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-3-Carbohydrate-Metabolism/1-2-3-3-Hormonal-Regulation/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-3-Carbohydrate-Metabolism/1-2-3-3-Hormonal-Regulation",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-3-Carbohydrate-Metabolism/1-2-3-3-Hormonal-Regulation/index.html"
+  },
+  {
+    "title": "Regulatory Proteins — Cell Cycle & Checkpoints",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-5-Cell-Cycle-and-Checkpoints/1-1-5-3-Regulatory-Proteins/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-5-Cell-Cycle-and-Checkpoints/1-1-5-3-Regulatory-Proteins",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-5-Cell-Cycle-and-Checkpoints/1-1-5-3-Regulatory-Proteins/index.html"
+  },
+  {
+    "title": "Relativity — Scientia",
+    "path": "Scientia/4-Relativity/index.html",
+    "dir": "Scientia/4-Relativity",
+    "rawPath": "Scientia/4-Relativity/index.html"
+  },
+  {
+    "title": "Scientia — Universal Understanding",
+    "path": "Scientia/index.html",
+    "dir": "Scientia",
+    "rawPath": "Scientia/index.html"
+  },
+  {
+    "title": "Sensus — Universal Understanding",
+    "path": "Sensus/index.html",
+    "dir": "Sensus",
+    "rawPath": "Sensus/index.html"
+  },
+  {
+    "title": "Series &amp; Approximations — Calculus",
+    "path": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-4-Series-and-Approximations/index.html",
+    "dir": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-4-Series-and-Approximations",
+    "rawPath": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-4-Series-and-Approximations/index.html"
+  },
+  {
+    "title": "Sigma Notation & Summation — Algebra & Functions",
+    "path": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-7-Sigma-Notation-Summation/index.html",
+    "dir": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-7-Sigma-Notation-Summation",
+    "rawPath": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-7-Sigma-Notation-Summation/index.html"
+  },
+  {
+    "title": "Signal Transduction Pathways — Cellular & Molecular Biology",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-3-Signal-Transduction-Pathways/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-3-Signal-Transduction-Pathways",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-3-Signal-Transduction-Pathways/index.html"
+  },
+  {
+    "title": "Structural Motifs — Amino Acids & Protein Structure",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-1-Amino-Acids-and-Protein-Structure/1-2-1-3-Structural-Motifs/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-1-Amino-Acids-and-Protein-Structure/1-2-1-3-Structural-Motifs",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-1-Amino-Acids-and-Protein-Structure/1-2-1-3-Structural-Motifs/index.html"
+  },
+  {
+    "title": "Substitution — Integration Techniques",
+    "path": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-4-Integration-Techniques/1-2-2-4-1-Substitution/index.html",
+    "dir": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-4-Integration-Techniques/1-2-2-4-1-Substitution",
+    "rawPath": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-4-Integration-Techniques/1-2-2-4-1-Substitution/index.html"
+  },
+  {
+    "title": "Topology Basics — Mathematical Foundations",
+    "path": "Scientia/1-Mathematical-Foundations/1-12-Topology-Basics/index.html",
+    "dir": "Scientia/1-Mathematical-Foundations/1-12-Topology-Basics",
+    "rawPath": "Scientia/1-Mathematical-Foundations/1-12-Topology-Basics/index.html"
+  },
+  {
+    "title": "Transcendental Functions — Mathematical Foundations",
+    "path": "Scientia/1-Mathematical-Foundations/1-14-Transcendental-Functions/index.html",
+    "dir": "Scientia/1-Mathematical-Foundations/1-14-Transcendental-Functions",
+    "rawPath": "Scientia/1-Mathematical-Foundations/1-14-Transcendental-Functions/index.html"
+  },
+  {
+    "title": "Transcription Factors — Gene Expression & Regulation",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-4-Gene-Expression-and-Regulation/1-1-4-1-Transcription-Factors/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-4-Gene-Expression-and-Regulation/1-1-4-1-Transcription-Factors",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-4-Gene-Expression-and-Regulation/1-1-4-1-Transcription-Factors/index.html"
+  },
+  {
+    "title": "Transport Mechanisms — Membrane Composition & Transport",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-2-Membrane-Composition-and-Transport/1-1-2-3-Transport-Mechanisms/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-2-Membrane-Composition-and-Transport/1-1-2-3-Transport-Mechanisms",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-2-Membrane-Composition-and-Transport/1-1-2-3-Transport-Mechanisms/index.html"
+  },
+  {
+    "title": "Trigonometric & Inverse Functions — Algebra & Functions",
+    "path": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-3-Trigonometric-Inverse-Functions/index.html",
+    "dir": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-3-Trigonometric-Inverse-Functions",
+    "rawPath": "Scientia/1-Mathematical-Foundations/1-1-Algebra-and-Functions/1-1-3-Trigonometric-Inverse-Functions/index.html"
+  },
+  {
+    "title": "Trigonometric Identities & Substitutions — Integration Techniques",
+    "path": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-4-Integration-Techniques/1-2-2-4-4-Trig-Identities-and-Substitutions/index.html",
+    "dir": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-4-Integration-Techniques/1-2-2-4-4-Trig-Identities-and-Substitutions",
+    "rawPath": "Scientia/1-Mathematical-Foundations/1-2-Calculus/1-2-2-Integration/1-2-2-4-Integration-Techniques/1-2-2-4-4-Trig-Identities-and-Substitutions/index.html"
+  },
+  {
+    "title": "Tumour Suppressors — Cancer Biology Basics",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-7-Cancer-Biology-Basics/1-1-7-2-Tumour-Suppressors/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-7-Cancer-Biology-Basics/1-1-7-2-Tumour-Suppressors",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-1-Cellular-and-Molecular-Biology/1-1-7-Cancer-Biology-Basics/1-1-7-2-Tumour-Suppressors/index.html"
+  },
+  {
+    "title": "Universal Understanding",
+    "path": "index.html",
+    "dir": ".",
+    "rawPath": "index.html"
+  },
+  {
+    "title": "Vector & Tensor Calculus — Mathematical Foundations",
+    "path": "Scientia/1-Mathematical-Foundations/1-6-Vector-and-Tensor-Calculus/index.html",
+    "dir": "Scientia/1-Mathematical-Foundations/1-6-Vector-and-Tensor-Calculus",
+    "rawPath": "Scientia/1-Mathematical-Foundations/1-6-Vector-and-Tensor-Calculus/index.html"
+  },
+  {
+    "title": "Vitalis — Universal Understanding",
+    "path": "Vitalis/index.html",
+    "dir": "Vitalis",
+    "rawPath": "Vitalis/index.html"
+  },
+  {
+    "title": "β-Oxidation & Ketogenesis — Lipid & Fatty Acid Metabolism",
+    "path": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-4-Lipid-and-Fatty-Acid-Metabolism/1-2-4-1-Beta-Oxidation-and-Ketogenesis/index.html",
+    "dir": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-4-Lipid-and-Fatty-Acid-Metabolism/1-2-4-1-Beta-Oxidation-and-Ketogenesis",
+    "rawPath": "Vitalis/1-Foundational-Biomedical-Sciences/1-2-Biochemistry/1-2-4-Lipid-and-Fatty-Acid-Metabolism/1-2-4-1-Beta-Oxidation-and-Ketogenesis/index.html"
+  }
+]
+  </script>
