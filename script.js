@@ -582,6 +582,28 @@ if (window.__uuRootScriptInitialized) {
 				window.location.assign(href);
 				return;
 			}
+			// Normalize plain anchor clicks for internal, relative links so
+			// links like `Scientia/index.html` resolve correctly from nested
+			// pages (fixes incorrect navigation on GitHub Pages and nested folders).
+			const plainAnchor = e.target.closest('a[href]');
+			if (plainAnchor && plainAnchor.getAttribute) {
+				try {
+					const raw = plainAnchor.getAttribute('href') || '';
+					// Skip external/anchor/mailto/tel/javascript links and explicit targets
+					if (raw && !/^(https?:|mailto:|tel:|javascript:|#)/i.test(raw) && !plainAnchor.hasAttribute('target') && !plainAnchor.hasAttribute('download') && !plainAnchor.hasAttribute('data-no-normalize')) {
+						// If this anchor is inside a .section-card we let the earlier handler manage it
+						if (!plainAnchor.classList.contains('section-card') && !plainAnchor.closest('.section-card')) {
+							e.preventDefault();
+							let t = raw.replace(/^Website[\\\/]/i, '').replace(/\\/g, '/').replace(/^\/+/, '');
+							const href = resolveTargetUrl(t);
+							try { console.debug('anchor navigate ->', href, 'from', window.location.pathname); } catch (err) {}
+							window.location.assign(href);
+							return;
+						}
+					}
+				} catch (err) { /* ignore */ }
+			}
+
 			const toggleBtn = e.target.closest('.toggle-btn');
 			if (toggleBtn) {
 				e.preventDefault();
