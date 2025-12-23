@@ -1,207 +1,83 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Universal Understanding</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <nav class="top-nav">
-    <ul>
-      <li><a href="Scientia/index.html">Scientia</a></li>
-      <li><a href="Vitalis/index.html">Vitalis</a></li>
-      <li><a href="Logos/index.html">Logos</a></li>
-      <li><a href="Sensus/index.html">Sensus</a></li>
-      <li class="search-container">
-        <input type="text" id="siteSearch" class="search-bar" placeholder="Search topics..." autocomplete="off">
-        <div id="searchResults" class="search-results"></div>
-      </li>
-      <li><button type="button" class="theme-toggle" id="themeToggle">Dark</button></li>
-    </ul>
-  </nav>
+:root{
+  --bg:#ffffff;
+  --muted:#667085;
+  --text:#0f172a;
+  --accent:#2563eb;
+  --card-bg:#f8fafc;
+  --card-border:rgba(15,23,42,0.06);
+  --radius:12px;
+  --shadow: 0 6px 18px rgba(15,23,42,0.06);
+  --gap:1rem;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.container{max-width:1100px;margin:0 auto;padding:1.25rem}
 
-  <header class="site-header container">
-    <div class="brand">
-      <div>
-        <h1>Universal Understanding</h1>
-        <p style="margin:0;color:var(--muted);font-size:0.9rem">Scientia · Vitalis · Logos · Sensus</p>
-      </div>
-    </div>
-  </header>
+/* Top navigation */
+.top-nav{background:transparent;padding:0.5rem 0;border-bottom:1px solid rgba(15,23,42,0.04)}
+.top-nav ul{list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:0.75rem}
+.top-nav li{margin:0}
+.top-nav a{padding:0.55rem 0.6rem;border-radius:8px;display:inline-block;color:var(--muted);font-weight:600}
+.top-nav a:hover{background:rgba(37,99,235,0.06);color:var(--accent)}
+.search-container{margin-left:auto;min-width:220px;position:relative}
+.search-bar{width:100%;padding:0.45rem 0.6rem;border-radius:8px;border:1px solid rgba(15,23,42,0.06)}
+.search-results{position:absolute;left:0;right:0;top:calc(100% + 6px);background:#fff;border:1px solid rgba(15,23,42,0.06);border-radius:8px;box-shadow:var(--shadow);z-index:40;max-height:320px;overflow:auto}
 
-  <main class="container">
-    <section id="home" class="hero">
-      <h2>Welcome to Universal Understanding!</h2>
-      <p class="welcome-subtitle always-blue">A journey through science, medicine, computation, philosophy, and culture</p>
-      <p class="welcome-description">Explore interconnected domains spanning mathematics, physics, medicine, computation, philosophy, and the arts. Each section offers a distinct lens on understanding our world and improving human wellbeing.</p>
-      <div class="welcome-grid">
-        <a href="Scientia/index.html" class="welcome-card scientia">
-          <svg class="card-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50" cy="30" r="8" fill="currentColor" opacity="0.8"/>
-            <circle cx="35" cy="50" r="6" fill="currentColor" opacity="0.6"/>
-            <circle cx="65" cy="50" r="6" fill="currentColor" opacity="0.6"/>
-            <circle cx="50" cy="65" r="7" fill="currentColor" opacity="0.7"/>
-            <line x1="50" y1="38" x2="35" y2="46" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
-            <line x1="50" y1="38" x2="65" y2="46" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
-            <line x1="35" y1="56" x2="50" y2="62" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
-            <line x1="65" y1="56" x2="50" y2="62" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
-          </svg>
-          <h4>Scientia</h4>
-          <p>Mathematics, physics, and the foundations of natural science</p>
-        </a>
-        <a href="Vitalis/index.html" class="welcome-card vitalis">
-          <svg class="card-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <line x1="50" y1="20" x2="50" y2="80" stroke="currentColor" stroke-width="2.5" opacity="0.8"/>
-            <circle cx="50" cy="18" r="4" fill="currentColor" opacity="0.8"/>
-            <path d="M 40 35 Q 45 38 50 35 Q 55 32 60 35" fill="none" stroke="currentColor" stroke-width="2" opacity="0.7"/>
-            <path d="M 40 48 Q 45 51 50 48 Q 55 45 60 48" fill="none" stroke="currentColor" stroke-width="2" opacity="0.7"/>
-            <path d="M 40 61 Q 45 64 50 61 Q 55 58 60 61" fill="none" stroke="currentColor" stroke-width="2" opacity="0.7"/>
-            <circle cx="50" cy="80" r="3" fill="currentColor" opacity="0.8"/>
-          </svg>
-          <h4>Vitalis</h4>
-          <p>Medicine, specialised research, and advanced topics</p>
-        </a>
-        <a href="Logos/index.html" class="welcome-card logos">
-          <svg class="card-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <rect x="25" y="30" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.8"/>
-            <rect x="60" y="30" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.8"/>
-            <rect x="25" y="60" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.8"/>
-            <rect x="60" y="60" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.8"/>
-            <line x1="40" y1="37" x2="60" y2="37" stroke="currentColor" stroke-width="1" opacity="0.5"/>
-            <line x1="32" y1="45" x2="32" y2="60" stroke="currentColor" stroke-width="1" opacity="0.5"/>
-            <line x1="68" y1="45" x2="68" y2="60" stroke="currentColor" stroke-width="1" opacity="0.5"/>
-            <line x1="40" y1="67" x2="60" y2="67" stroke="currentColor" stroke-width="1" opacity="0.5"/>
-          </svg>
-          <h4>Logos</h4>
-          <p>Computation, algorithms, and information</p>
-        </a>
-        <a href="Sensus/index.html" class="welcome-card sensus">
-          <svg class="card-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50" cy="45" r="22" fill="none" stroke="currentColor" stroke-width="2" opacity="0.7"/>
-            <circle cx="40" cy="35" r="3" fill="currentColor" opacity="0.8"/>
-            <circle cx="60" cy="35" r="3" fill="currentColor" opacity="0.8"/>
-            <path d="M 40 50 Q 50 58 60 50" fill="none" stroke="currentColor" stroke-width="2" opacity="0.6"/>
-            <path d="M 30 45 Q 25 42 22 35" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
-            <path d="M 70 45 Q 75 42 78 35" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
-          </svg>
-          <h4>Sensus</h4>
-          <p>Philosophy, culture, music, and aesthetics</p>
-        </a>
-      </div>
-      <p class="date-created">Created: December 14, 2025</p>
-    </section>
+/* Header */
+.site-header{display:flex;align-items:center;padding:1rem 0}
+.brand h1{font-size:1.15rem;margin:0}
 
-    <section id="updates" class="hero">
-      <h3>Latest Update</h3>
-      <div class="updates-list">
-        <div class="update-item">
-          <div class="update-meta">
-            <span class="update-tag">Fix</span>
-            <span class="update-date">December 17, 2025 • 10:39</span>
-          </div>
-          <p>Fixed search navigation from subpages, ensured badge colours are consistent across cards and search results, and improved mobile compatibility for theme toggles.</p>
-        </div>
-      </div>
-    </section>
+/* Main heroes */
+.hero{padding:1.5rem 0}
+.welcome-subtitle{color:var(--accent);margin:0 0 0.5rem}
+.welcome-description{color:var(--muted);margin:0 0 1rem}
 
-    <section id="about">
-      <button type="button" class="toggle-btn">About Universal Understanding</button>
-      <div class="toggle-content">
-        <p>A comprehensive portfolio of personal research and exploration across multiple disciplines, with particular focus on medicine and human health:</p>
-        <ul class="feature-list">
-          <li><strong>Scientia</strong> — Mathematical foundations, physics principles, quantum mechanics, and relativity. Foundational knowledge across mathematics and physics</li>
-          <li><strong>Vitalis</strong> — Medicine, specialised research, and advanced topics at the cutting edge of scientific exploration</li>
-          <li><strong>Logos</strong> — Computational approaches, algorithms, programming, and the mathematics of computation and information</li>
-          <li><strong>Sensus</strong> — Philosophy, culture, music, aesthetics, and the humanistic exploration of meaning and expression</li>
-        </ul>
-        <p>This site represents a passion for deepening understanding across multiple disciplines and exploring the interconnections between science, computation, philosophy, and culture.</p>
-  <!doctype html>
-  <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Universal Understanding</title>
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
-    <nav class="top-nav">
-      <ul>
-        <li><a href="Scientia/index.html">Scientia</a></li>
-        <li><a href="Vitalis/index.html">Vitalis</a></li>
-        <li><a href="Logos/index.html">Logos</a></li>
-        <li><a href="Sensus/index.html">Sensus</a></li>
-        <li class="search-container">
-          <input type="text" id="siteSearch" class="search-bar" placeholder="Search topics..." autocomplete="off">
-          <div id="searchResults" class="search-results"></div>
-        </li>
-        <li><button type="button" class="theme-toggle" id="themeToggle">Dark</button></li>
-      </ul>
-    </nav>
+.welcome-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:1rem}
+.welcome-card{display:block;padding:1rem;border-radius:var(--radius);background:var(--card-bg);box-shadow:var(--shadow);border:1px solid var(--card-border);color:var(--text);transition:transform .18s ease,box-shadow .18s ease}
+.welcome-card:hover{transform:translateY(-6px);box-shadow:0 10px 26px rgba(15,23,42,0.08)}
+.card-icon{width:48px;height:48px;color:var(--accent);display:block;margin-bottom:0.5rem}
+.welcome-card h4{margin:0 0 0.25rem;font-size:1.05rem}
+.welcome-card p{margin:0;color:var(--muted);font-size:0.92rem}
 
-    <header class="site-header container">
-      <div class="brand">
-        <div>
-          <h1>Universal Understanding</h1>
-          <p style="margin:0;color:var(--muted);font-size:0.9rem">Scientia · Vitalis · Logos · Sensus</p>
-        </div>
-      </div>
-    </header>
+/* Sections */
+.hero .updates-list{margin-top:.75rem}
+.update-item{padding:.75rem;border-radius:10px;background:#fff;border:1px solid rgba(15,23,42,0.03);box-shadow:0 4px 10px rgba(15,23,42,0.02)}
+.update-meta{display:flex;gap:.5rem;align-items:center;margin-bottom:.35rem}
+.update-tag{background:rgba(37,99,235,0.08);color:var(--accent);padding:.15rem .45rem;border-radius:6px;font-weight:700;font-size:.8rem}
 
-    <main class="container">
-      <section id="home" class="hero">
-        <h2>Welcome to Universal Understanding!</h2>
-        <p class="welcome-subtitle always-blue">A journey through science, medicine, computation, philosophy, and culture</p>
-        <p class="welcome-description">Explore interconnected domains spanning mathematics, physics, medicine, computation, philosophy, and the arts. Each section offers a distinct lens on understanding our world and improving human wellbeing.</p>
-        <div class="welcome-grid">
-          <a href="Scientia/index.html" class="welcome-card scientia">
-            <svg class="card-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="50" cy="30" r="8" fill="currentColor" opacity="0.8"/>
-              <circle cx="35" cy="50" r="6" fill="currentColor" opacity="0.6"/>
-              <circle cx="65" cy="50" r="6" fill="currentColor" opacity="0.6"/>
-              <circle cx="50" cy="65" r="7" fill="currentColor" opacity="0.7"/>
-              <line x1="50" y1="38" x2="35" y2="46" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
-              <line x1="50" y1="38" x2="65" y2="46" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
-              <line x1="35" y1="56" x2="50" y2="62" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
-              <line x1="65" y1="56" x2="50" y2="62" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
-            </svg>
-            <h4>Scientia</h4>
-            <p>Mathematics, physics, and the foundations of natural science</p>
-          </a>
-          <a href="Vitalis/index.html" class="welcome-card vitalis">
-            <svg class="card-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-              <line x1="50" y1="20" x2="50" y2="80" stroke="currentColor" stroke-width="2.5" opacity="0.8"/>
-              <circle cx="50" cy="18" r="4" fill="currentColor" opacity="0.8"/>
-              <path d="M 40 35 Q 45 38 50 35 Q 55 32 60 35" fill="none" stroke="currentColor" stroke-width="2" opacity="0.7"/>
-              <path d="M 40 48 Q 45 51 50 48 Q 55 45 60 48" fill="none" stroke="currentColor" stroke-width="2" opacity="0.7"/>
-              <path d="M 40 61 Q 45 64 50 61 Q 55 58 60 61" fill="none" stroke="currentColor" stroke-width="2" opacity="0.7"/>
-              <circle cx="50" cy="80" r="3" fill="currentColor" opacity="0.8"/>
-            </svg>
-            <h4>Vitalis</h4>
-            <p>Medicine, specialised research, and advanced topics</p>
-          </a>
-          <a href="Logos/index.html" class="welcome-card logos">
-            <svg class="card-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-              <rect x="25" y="30" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.8"/>
-              <rect x="60" y="30" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.8"/>
-              <rect x="25" y="60" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.8"/>
-              <rect x="60" y="60" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.8"/>
-              <line x1="40" y1="37" x2="60" y2="37" stroke="currentColor" stroke-width="1" opacity="0.5"/>
-              <line x1="32" y1="45" x2="32" y2="60" stroke="currentColor" stroke-width="1" opacity="0.5"/>
-              <line x1="68" y1="45" x2="68" y2="60" stroke="currentColor" stroke-width="1" opacity="0.5"/>
-              <line x1="40" y1="67" x2="60" y2="67" stroke="currentColor" stroke-width="1" opacity="0.5"/>
-            </svg>
-            <h4>Logos</h4>
-            <p>Computation, algorithms, and information</p>
-          </a>
-          <a href="Sensus/index.html" class="welcome-card sensus">
-            <svg class="card-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="50" cy="45" r="22" fill="none" stroke="currentColor" stroke-width="2" opacity="0.7"/>
-              <circle cx="40" cy="35" r="3" fill="currentColor" opacity="0.8"/>
-              <circle cx="60" cy="35" r="3" fill="currentColor" opacity="0.8"/>
-              <path d="M 40 50 Q 50 58 60 50" fill="none" stroke="currentColor" stroke-width="2" opacity="0.6"/>
-              <path d="M 30 45 Q 25 42 22 35" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
-              <path d="M 70 45 Q 75 42 78 35" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+.feature-list{padding-left:1.2rem;color:var(--muted)}
+
+/* Contact form */
+#contactForm input,#contactForm textarea{width:100%;padding:.6rem;border:1px solid rgba(15,23,42,0.06);border-radius:8px;margin-bottom:.5rem}
+#contactForm button{background:var(--accent);color:#fff;padding:.55rem .9rem;border-radius:8px;border:none}
+
+/* Footer */
+footer{padding:1rem 0;text-align:center;color:var(--muted);font-size:.9rem}
+
+/* Utility */
+.toggle-content{margin-top:.5rem}
+.date-created{color:var(--muted);font-size:.85rem;margin-top:0.75rem}
+
+/* Responsive tweaks */
+@media (max-width:720px){
+  .top-nav ul{gap:.4rem}
+  .search-container{min-width:unset;flex:1}
+  .container{padding:0.75rem}
+  .brand h1{font-size:1rem}
+}
+
+/* Provide a subtle dark theme hook */
+body.dark{background:#0b1220;color:#e6eef8}
+body.dark .welcome-card{background:#071926;border-color:rgba(255,255,255,0.04)}
+
+/* ensure code blocks and math render nicely */
+pre,code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+
+/* small accessibility improvements */
+:focus{outline:3px solid rgba(37,99,235,0.18);outline-offset:2px}
+
             </svg>
             <h4>Sensus</h4>
             <p>Philosophy, culture, music, and aesthetics</p>
