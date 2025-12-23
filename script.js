@@ -84,6 +84,24 @@ if (window.__uuRootScriptInitialized) {
 					.catch(() => {});
 			} catch (e) { /* ignore */ }
 		})();
+	// Compute and cache script base URL for robust link resolution later
+	(function computeScriptBase() {
+		try {
+			let scriptSrc = (document.currentScript && document.currentScript.src) || '';
+			if (!scriptSrc) {
+				const scripts = Array.from(document.getElementsByTagName('script'));
+				for (let i = scripts.length - 1; i >= 0; i--) {
+					const s = scripts[i].src || '';
+					if (s && s.toLowerCase().indexOf('/script.js') !== -1) { scriptSrc = s; break; }
+				}
+			}
+			if (scriptSrc) {
+				window.__uuScriptBase = scriptSrc.slice(0, scriptSrc.lastIndexOf('/') + 1);
+			} else {
+				window.__uuScriptBase = window.location.origin + (window.location.pathname || '/');
+			}
+		} catch (e) { window.__uuScriptBase = window.location.origin + (window.location.pathname || '/'); }
+	})();
 	// Theme toggle functionality (ensure a toggle exists)
 	let themeToggle = document.getElementById('themeToggle');
 	const htmlElement = document.documentElement;
