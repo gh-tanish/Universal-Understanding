@@ -1668,6 +1668,7 @@ body {
     border-color 0.35s ease;
 
   background-image: var(--concept-image, url("images/concept-cards.jpg"));
+  background-clip: padding-box;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
