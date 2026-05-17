@@ -916,6 +916,31 @@ body.about .card h3 {
 
 
 
+.card p {
+  font-size: 1rem;
+  line-height: 1.7;
+  font-weight: 350;
+
+  color: rgba(245, 248, 255, 0.96);
+
+  text-shadow:
+    0 2px 10px rgba(0,0,0,0.65),
+    0 0 18px rgba(0,0,0,0.18);
+
+  padding: 10px 14px;
+  border-radius: 14px;
+
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  box-shadow:
+    0 8px 20px rgba(0,0,0,0.18);
+
+  margin-top: 12px;
+}
 
 /* =========================
    CARD GIF BACKGROUNDS
@@ -1373,8 +1398,10 @@ body {
 
 .article-item {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: stretch;
+  min-height: 220px;
   gap: 20px;
 
   padding: 20px 22px;
@@ -1410,100 +1437,6 @@ body {
   z-index: 2;
 }
 
-/* =========================
-   ARTICLE CODE (FIXED)
-========================= */
-
-
-.article-code {
-  position: absolute !important;
-  top: 12px;
-  right: 12px;
-  z-index: 9999;
-
-  display: inline-flex;
-  padding: 5px 10px;
-  border-radius: 999px;
-
-  /* FORCE VISIBILITY CONTRAST */
-  background: var(--theme);
-  background-size: 300% 300%;
-  animation: gradientShift 7s ease infinite;
-
-  border: 1px solid rgba(255,255,255,0.25);
-
-  color: #070707;
-
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-
-  box-shadow:
-    0 10px 22px rgba(0,0,0,0.45),
-    0 0 18px rgba(120,140,255,0.35);
-
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-
-  pointer-events: none;
-
-  /* IMPORTANT: prevents pseudo-element affecting layout */
-  overflow: hidden;
-  transform: translateZ(0);
-}
-
-
-.article-code::after {
-  content: "";
-  position: absolute;
-  inset: -60%;
-
-  background: var(--theme);
-  background-size: 300% 300%;
-  animation: gradientShift 6s ease infinite;
-
-  opacity: 0.22;
-  filter: blur(16px);
-
-  border-radius: inherit;
-
-  z-index: -1;
-
-  pointer-events: none;
-  transform: translateZ(0);
-}
-
-.article-item span {
-  align-self: flex-end;
-  margin-top: auto;
-
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 0.4px;
-
-  color: rgba(160, 180, 255, 0.9);
-
-  padding: 8px 12px;
-
-  /* BOXIER SHAPE */
-  border-radius: 10px;
-
-  background: rgba(119, 116, 116, 0.826);
-  border: 1px solid rgba(160, 180, 255, 0.25);
-
-  /* subtle depth instead of blur-heavy glass */
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
-
-  white-space: nowrap;
-
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-  z-index: 2;
-}
-
-.article-item:hover span {
-  transform: translateX(4px);
-  box-shadow: 0 0 14px rgba(120,140,255,0.18);
-}
 /* =========================
    GLOW LAYER
 ========================= */
@@ -1548,7 +1481,7 @@ body {
    TEXT BLOCK (LEFT SIDE)
 ========================= */
 
-.article-item > div {
+.article-content {
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -1567,7 +1500,9 @@ body {
   position: relative;
   z-index: 2;
 
-  display: inline-block;
+  align-self: stretch;
+  width: 100%;
+  box-sizing: border-box;
 
   padding: 8px 12px;
   border-radius: 12px;
@@ -1606,19 +1541,34 @@ body {
 }
 
 /* description */
-.article-item p {
-  margin: 0;
+.article-item p:not(.article-date) {
+  
+  display: flex;
+  align-items: center;
+  flex: 1;
+  font-size: 0.98rem;
+  line-height: 1.65;
+  font-weight: 350;
 
-  font-size: 0.95rem;
-  font-weight: 500;
-  line-height: 1.7;
-
-  color: rgba(235, 240, 255, 0.92);
+  color: rgba(245, 248, 255, 0.96);
 
   text-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.45);
+    0 2px 10px rgba(0,0,0,0.65),
+    0 0 18px rgba(0,0,0,0.18);
 
-  max-width: 95%;
+  padding: 10px 14px;
+  border-radius: 14px;
+
+  background: rgba(181, 182, 185, 0.103);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  box-shadow:
+    0 8px 20px rgba(0,0,0,0.18);
+
+  margin: 0px 0 0px 0;
 }
 
 
@@ -1640,6 +1590,105 @@ body {
   line-height: 1.2;
 }
 
+/* =========================
+   ARTICLE CODE (FIXED)
+========================= */
+
+
+.article-code {
+  margin: 0;
+  align-self: flex-end;
+
+  display: inline-flex;
+  padding: 5px 10px;
+  border-radius: 999px;
+
+  background: var(--theme);
+  background-size: 300% 300%;
+  animation: gradientShift 7s ease infinite;
+
+  border: 1px solid rgba(255,255,255,0.25);
+
+  color: #070707;
+
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+
+  box-shadow:
+    0 10px 22px rgba(0,0,0,0.45),
+    0 0 18px rgba(120,140,255,0.35);
+
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  pointer-events: none;
+
+  overflow: hidden;
+  transform: translateZ(0);
+
+  z-index: 2;
+}
+
+.article-code::after {
+  content: "";
+  position: absolute;
+  inset: -60%;
+
+  background: var(--theme);
+  background-size: 300% 300%;
+  animation: gradientShift 6s ease infinite;
+
+  opacity: 0.22;
+  filter: blur(16px);
+
+  border-radius: inherit;
+  z-index: -1;
+}
+
+.article-item span {
+  margin: 0;
+  align-self: flex-start;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+
+  color: rgba(160, 180, 255, 0.9);
+
+  padding: 8px 12px;
+  border-radius: 10px;
+
+  background: rgba(119, 116, 116, 0.826);
+  border: 1px solid rgba(160, 180, 255, 0.25);
+
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+
+  white-space: nowrap;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+
+  z-index: 2;
+}
+
+.article-item:hover span {
+  transform: translateX(4px);
+  box-shadow: 0 0 14px rgba(120,140,255,0.18);
+}
+
+.article-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  margin-top: auto;
+
+  z-index: 2;
+}
 /* =========================
    CONCEPT SYSTEM (CLEAN FINAL VERSION)
 ========================= */
@@ -1823,7 +1872,7 @@ body.sensus { --title-theme: var(--sensus-title); }
   padding: 10px 14px;
   border-radius: 14px;
 
-  background: rgba(41, 43, 49, 0.32);
+  background: rgba(181, 182, 185, 0.103);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 
