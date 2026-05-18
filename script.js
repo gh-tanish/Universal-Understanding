@@ -105,3 +105,48 @@ window.addEventListener("load", () => {
   document.body.classList.remove("preload");
 });
 
+
+
+
+
+let selectedVoice = null;
+
+// Load + lock voices once they are available
+function loadVoices() {
+  const voices = speechSynthesis.getVoices();
+
+  // Prefer stable UK female voices (ordered by reliability)
+  selectedVoice =
+    voices.find(v => v.name === "Google UK English Female") ||
+    voices.find(v => v.name === "Microsoft Susan Desktop - English (United Kingdom)") ||
+    voices.find(v =>
+      v.lang === "en-GB" &&
+      /female|woman|girl/i.test(v.name)
+    ) ||
+    voices.find(v => v.lang === "en-GB") ||
+    voices.find(v => v.lang.startsWith("en")) ||
+    voices[0] ||
+    null;
+}
+
+// Fix Chrome async voice loading issue
+loadVoices();
+speechSynthesis.onvoiceschanged = loadVoices;
+
+function pronounceWord(text) {
+  window.speechSynthesis.cancel();
+
+  const utterance = new SpeechSynthesisUtterance(text);
+
+  utterance.rate = 0.95;
+  utterance.pitch = 1;
+
+  if (selectedVoice) {
+    utterance.voice = selectedVoice;
+    utterance.lang = selectedVoice.lang;
+  } else {
+    utterance.lang = "en-GB";
+  }
+
+  speechSynthesis.speak(utterance);
+}

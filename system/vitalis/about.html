@@ -8,6 +8,7 @@
 
   <title>About Vitalis</title>
 
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../style.css">
 
 </head>
@@ -31,7 +32,6 @@
 
   </header>
 
-
   <main>
 
     <!-- HERO -->
@@ -47,18 +47,32 @@
           Understanding life as an adaptive, evolving system.
         </h2>
 
-        <p class="hero-description">
+        <!-- ETYMOLOGY BLOCK -->
+        <div class="etymology">
 
-          Vitalis explores how biological complexity emerges from simple cellular
-          rules — shaping evolution, intelligence, ecosystems, and the dynamic
-          systems that sustain life.
+          <div class="etymology-header">
 
-        </p>
+            <span class="etymology-label">ETYMOLOGY</span>
+
+            <div class="etymology-pronounce">
+              <button onclick="pronounceWord('vitaalis', 'la')">
+                🔊 Pronounce
+              </button>
+            </div>
+
+          </div>
+
+          <p>
+            <strong><em>Vitalis:</em></strong> from Latin <em>vītālis</em>,
+            meaning “of life,” “vital,” or “life-giving,”
+            derived from <em>vīta</em> — “life.”
+          </p>
+
+        </div>
 
       </div>
 
     </section>
-
 
     <!-- OVERVIEW -->
     <section class="feature-section">
@@ -69,12 +83,11 @@
 
         <p>
           Vitalis organises biology into a systems-based framework — revealing how
-          life emerges, adapts, and evolves through interconnected biological processes
-          rather than isolated mechanisms.
+          life emerges, adapts, and evolves through interconnected biological
+          processes rather than isolated mechanisms.
         </p>
 
       </div>
-
 
       <div class="feature-box">
 
@@ -90,74 +103,64 @@
 
     </section>
 
-
     <!-- CORE PRINCIPLES -->
     <section class="concept-header">
       <h3>Core Principles</h3>
     </section>
 
+    <!-- INFO GRID -->
+    <section class="topic-grid about-grid">
 
-    <section class="topic-grid">
-
-      <div class="topic-card">
+      <div class="info-card">
 
         <h3>Biology</h3>
 
         <p>
-        The study of living systems and the processes that
-        sustain life. Exploring how organisms function,
-        evolve, and interact, from cellular structures to
-        complex biological systems, or branches of ecology.
+          The study of living systems and the processes that
+          sustain life. Exploring how organisms function,
+          evolve, and interact, from cellular structures to
+          complex biological systems including ecology.
         </p>
 
       </div>
 
-
-      <div class="topic-card">
+      <div class="info-card">
 
         <h3>Chemistry</h3>
 
         <p>
-        The study of matter and the transformations it
-        undergoes. Exploring the composition, properties,
-        and reactions of substances, and the underlying
-        principles that govern chemical change.
+          The study of matter and its transformations.
+          Exploring composition, properties, reactions,
+          and the principles that govern chemical change.
         </p>
 
       </div>
 
-
-      <div class="topic-card">
+      <div class="info-card">
 
         <h3>Medicine</h3>
 
         <p>
-        The study of the human body and the practice of
-        understanding, diagnosing, and treating illness.
-        Drawing on anatomy and medical science to explore
-        how health is maintained and restored.
+          The study of the human body and the practice of
+          diagnosing and treating illness. Exploring anatomy,
+          physiology, and the maintenance of health.
         </p>
 
       </div>
 
-
-      <div class="topic-card">
+      <div class="info-card">
 
         <h3>Neuroscience</h3>
 
         <p>
-        The study of the nervous system and the biological
-        basis of thought and behaviour. Bridging physical
-        structure with cognition, linking closely to
-        Sensus through the understanding of how the brain
-        gives rise to experience.
+          The study of the nervous system and biological
+          basis of thought and behaviour, linking structure
+          to cognition and experience.
         </p>
 
       </div>
 
     </section>
-
-
 
     <!-- QUOTE -->
     <section class="quote-section">
@@ -173,7 +176,6 @@
     </section>
 
   </main>
-
 
   <!-- FOOTER -->
   <footer>
