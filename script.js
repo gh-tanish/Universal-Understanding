@@ -62,9 +62,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     toggleBtn.addEventListener("click", () => {
 
+      /* Prevent visual flicker during theme switch */
+      document.body.classList.add("theme-switching");
+
+      /* Toggle theme */
       document.body.classList.toggle("light-mode");
       document.documentElement.classList.toggle("light-mode");
 
+      /* Save preference */
       if (document.body.classList.contains("light-mode")) {
         localStorage.setItem("theme", "light");
       } else {
@@ -73,6 +78,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
       updateButton();
       updateThemeColor();
+
+      /* Re-enable transitions */
+      setTimeout(() => {
+        document.body.classList.remove("theme-switching");
+      }, 80);
 
     });
 
@@ -106,16 +116,18 @@ window.addEventListener("load", () => {
 });
 
 
-
-
+/* =========================
+   PRONUNCIATION SYSTEM
+========================= */
 
 let selectedVoice = null;
 
-// Load + lock voices once they are available
+/* Load + lock voices once available */
 function loadVoices() {
+
   const voices = speechSynthesis.getVoices();
 
-  // Prefer stable UK female voices (ordered by reliability)
+  /* Prefer stable UK female voices */
   selectedVoice =
     voices.find(v => v.name === "Google UK English Female") ||
     voices.find(v => v.name === "Microsoft Susan Desktop - English (United Kingdom)") ||
@@ -127,13 +139,15 @@ function loadVoices() {
     voices.find(v => v.lang.startsWith("en")) ||
     voices[0] ||
     null;
+
 }
 
-// Fix Chrome async voice loading issue
+/* Fix Chrome async voice loading */
 loadVoices();
 speechSynthesis.onvoiceschanged = loadVoices;
 
 function pronounceWord(text) {
+
   window.speechSynthesis.cancel();
 
   const utterance = new SpeechSynthesisUtterance(text);
@@ -149,4 +163,5 @@ function pronounceWord(text) {
   }
 
   speechSynthesis.speak(utterance);
+
 }
