@@ -95,6 +95,17 @@
     #ff4fd8
   );
 
+  --expression: linear-gradient(
+  120deg,
+  #ff4fd8,
+  #7a5cff,
+  #4fa3ff,
+  #2de6b8,
+  #ff4fd8
+);
+
+--expression-glow: rgba(255, 79, 216, 0.22);
+
   /* =========================
    LIGHT MODE THEMES (DARKER GRADIENTS)
 ========================= */
@@ -184,6 +195,10 @@ body.light-mode {
 );
 }
 
+
+
+
+
 body.scientia {
   --topic-accent: rgba(90, 140, 255, 0.14);
 }
@@ -221,6 +236,11 @@ body.sensus {
   --glow: var(--glow-sensus);
 }
 
+
+body.expressions {
+  --theme: var(--expression);
+  --glow: var(--expression-glow);
+}
 .theme-line {
   background: var(--theme);
   background-size: 300% 300%;
@@ -1138,7 +1158,6 @@ body.about .card h3 {
   text-shadow:
     0 0 12px rgba(120,140,255,0.25);
 }
-
 
 /* =========================
    9. QUOTE
@@ -2674,4 +2693,89 @@ body.light-mode .concept-card::after {
 
   transition: none !important;
   transition-duration: 0s !important;
+}
+
+
+
+/* =========================
+   CAROUSEL BASE (CLEAN)
+========================= */
+
+.concept-carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 40px;
+  overflow: hidden;
+}
+
+/* viewport wrapper */
+.carousel-track {
+  display: flex;
+  width: 100%;
+  max-width: 900px;
+
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+/* each card */
+.carousel-track .concept-card {
+  min-width: 100%;
+  flex-shrink: 0;
+}
+
+/* arrows */
+.carousel-btn {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(160,180,255,0.25);
+
+  color: #fff;
+  font-size: 2rem;
+
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: 0.25s ease;
+}
+
+.carousel-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 18px var(--glow);
+}
+
+/* dots */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+
+  margin-top: 18px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+
+  border: none;
+  cursor: pointer;
+
+  background: rgba(150, 160, 200, 0.35);
+
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background: var(--theme);
+  box-shadow: 0 0 14px var(--glow);
+  transform: scale(1.2);
 }
